@@ -1,0 +1,12 @@
+#sidebar {
+	position: absolute;
+	width: 400px;
+}
+
+#mapDiv {
+	position: absolute;
+	left: 400px;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
