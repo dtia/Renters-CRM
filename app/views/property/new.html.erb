@@ -1,0 +1,26 @@
+<html>
+  <body>
+	<%= form_tag("/create", :method => "get") do %>
+		<%= label_tag(:beds, "Beds") %>
+	    <%= text_field_tag(:beds) %>
+	    <%= label_tag(:baths, "Baths") %>
+	    <%= text_field_tag(:baths) %>
+		<%= label_tag(:street, "Street") %>
+		<%= text_field_tag(:street) %>
+		<%= label_tag(:city, "City") %>
+		<%= text_field_tag(:city) %>
+		<%= label_tag(:state, "State") %>
+		<%= text_field_tag(:state) %>
+		<%= label_tag(:avail_date, "Date Available") %>
+		<%= text_field_tag(:avail_date) %>
+		<%= label_tag(:price, "Rate") %>
+		<%= text_field_tag(:price) %>
+		<%= label_tag(:deposit, "Deposit") %>
+		<%= text_field_tag(:deposit) %>
+		<%= label_tag(:parking, "Has Parking") %>
+		<%= text_field_tag(:parking) %>
+	<%= submit_tag("Search") %>
+	<% end %>
+  </body>
+	
+</html>
