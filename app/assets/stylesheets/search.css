@@ -10,3 +10,7 @@
 	bottom: 0;
 	right: 0;
 }
+
+label.error {
+    color: #f00;
+}
