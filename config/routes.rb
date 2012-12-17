@@ -10,12 +10,10 @@ RenterCrm::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
   match 'search_listings' => 'search#search_listings'
-  #match 'property/create' => 'property#create'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :property
-
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -27,6 +25,20 @@ RenterCrm::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+  resources :property do
+    member do
+      get 'new'
+      post 'create'
+    end
+  end
+  
+  resources :user do
+    member do
+      get 'new'
+      post 'create'
+    end
+  end
+  
 
   # Sample resource route with sub-resources:
   #   resources :products do

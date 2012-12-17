@@ -1,0 +1,18 @@
+<html>
+  <body>
+	<%= form_tag("/user/create", :method => "post") do %>
+		<%= label_tag(:role, "Role") %>
+	    <%= text_field_tag(:role) %>
+		<%= label_tag(:firstname, "First Name") %>
+	    <%= text_field_tag(:firstname) %>
+		<%= label_tag(:lastname, "Last Name") %>
+	    <%= text_field_tag(:lastname) %>
+		<%= label_tag(:email, "Email") %>
+	    <%= text_field_tag(:email) %>
+		<%= label_tag(:ssn, "Social Security Number") %>
+	    <%= text_field_tag(:ssn) %>
+	<%= submit_tag("Create User") %>
+	<% end %>
+  </body>
+	
+</html>
