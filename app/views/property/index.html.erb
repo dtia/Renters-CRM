@@ -1,15 +1,17 @@
 <html>
   <body>
-	<table>
+	<h1>Property Listings</h1>
+	<table class="table">
+		<th>Address</th>
+		<th>Rate</th>
+		<th>Available Date</th>
 		<% for listing in @properties %>
 			<tr>
 				<td>
-					<h3>
-						<%= listing.street %>
-						<%= listing.city %> <%= listing.state %>
-					</h3>
+					<h4><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h4>
 				</td>
-				<td><%= listing.price %></td>
+				<td><h5><%= listing.price %></h5></td>
+				<td><%= listing.avail_date %></td>
 			</tr>
 		<% end %>
 	</table>

@@ -3,6 +3,7 @@ class Property < ActiveRecord::Base
   belongs_to :user
   has_many :applications
   has_many :users, :through => :applications
+  validates :street, :city, :state, :user_id, :price, :presence => true
   
   def self.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, user_id)
     if Property.where("street = ? and unit = ? and city = ? and state = ?", street, unit, city, state).empty?
@@ -25,6 +26,6 @@ class Property < ActiveRecord::Base
   end
   
   def self.get_properties(user_id)
-    @properties = Property.where("user_id = ?", user_id)
+    return Property.where("user_id = ?", user_id)
   end
 end

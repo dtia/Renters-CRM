@@ -1,6 +1,7 @@
 class PropertyController < ApplicationController
   def index
-    Property.get_properties(user_id)
+    user_id = 13
+    @properties = Property.get_properties(user_id)
   end
   
   def new    
@@ -18,9 +19,9 @@ class PropertyController < ApplicationController
     price = params[:price]
     deposit = params[:deposit]
     has_parking = params[:has_parking]
-    uid = 0 # this needs to be updated
+    user_id = 13 # this needs to be updated with user id. currently hardcoded with existing user id
     
-    Property.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, uid)
+    Property.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, user_id)
     redirect_to :action => "index"
   end
 end

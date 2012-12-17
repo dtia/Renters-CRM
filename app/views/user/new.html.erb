@@ -2,13 +2,15 @@
   <body>
 	<%= form_tag("/user/create", :method => "post") do %>
 		<%= label_tag(:role, "Role") %>
-	    <%= text_field_tag(:role) %>
+		<%= select_tag(:role, options_for_select([['Manager', 1], ['Tenant', 2]], 1)) %>
 		<%= label_tag(:firstname, "First Name") %>
 	    <%= text_field_tag(:firstname) %>
 		<%= label_tag(:lastname, "Last Name") %>
 	    <%= text_field_tag(:lastname) %>
 		<%= label_tag(:email, "Email") %>
 	    <%= text_field_tag(:email) %>
+		<%= label_tag(:phone, "Phone") %>
+	    <%= text_field_tag(:phone) %>
 		<%= label_tag(:ssn, "Social Security Number") %>
 	    <%= text_field_tag(:ssn) %>
 	<%= submit_tag("Create User") %>

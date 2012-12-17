@@ -22,7 +22,7 @@
 		<%= label_tag(:deposit, "Deposit") %>
 		<%= text_field_tag(:deposit) %>
 		<%= label_tag(:parking, "Has Parking") %>
-		<%= text_field_tag(:parking) %>
+		<%= select_tag(:parking, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
 	<%= submit_tag("Create Listing") %>
 	<% end %>
   </body>
