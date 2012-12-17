@@ -1,0 +1,19 @@
+var map;
+
+function initialize()
+{
+    map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {
+		credentials:"AkL7bdBJmEpRncJpZ9MmXwEUIvnkId7Yo9IJrDhNFGrkR--08hfritan5JH_nzRw",
+		center: new Microsoft.Maps.Location(37.7577,-122.4376),
+		mapTypeId: Microsoft.Maps.MapTypeId.road,
+		zoom: 4});
+		
+	//Create two layers, one for pushpins, the other for the infobox. This way the infobox will always be above the pushpins.
+	infoboxLayer = new Microsoft.Maps.EntityCollection();
+	map.entities.push(infoboxLayer);
+	
+	pinLayer = new Microsoft.Maps.EntityCollection();
+	map.entities.push(pinLayer);
+	
+	pushpinFrameHTML = '<div id="infobox" class="infobox"><div id="infobox_content" class="infobox_content">{content}</div></div><div class="infobox_pointer"><img src= <%= asset_path("pointer_shadow.png") %> /></div>';
+}
