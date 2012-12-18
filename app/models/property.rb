@@ -28,4 +28,13 @@ class Property < ActiveRecord::Base
   def self.get_properties(user_id)
     return Property.where("user_id = ?", user_id)
   end
+  
+  def self.get_matches(city, state, date)
+    puts city + ' ' + state
+    if !date.empty?
+      return Property.where("city = ? and state = ? and avail_date = ?", city, state, date)
+    else
+      return Property.where("city = ? and state = ?", city, state)
+    end
+  end
 end

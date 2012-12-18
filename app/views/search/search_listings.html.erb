@@ -3,7 +3,24 @@
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>	
 
 <body onload="initialize()">
-<div id="sidebar"><h3>Listings</h3></div>
+<div id="sidebar">
+	<h3>Listings</h3>
+	<table class="table">
+		<th>Address</th>
+		<th>Rate</th>
+		<th>Available Date</th>
+		<% for listing in @search_results %>
+			<tr>
+				<td>
+					<h4><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h4>
+				</td>
+				<td><h5><%= listing.price %></h5></td>
+				<td><%= listing.avail_date %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
 <div id="mapDiv"></div>
 </body>
 </html>

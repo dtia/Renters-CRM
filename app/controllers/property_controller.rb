@@ -1,6 +1,6 @@
 class PropertyController < ApplicationController
   def index
-    user_id = 13
+    user_id = 13 #hardcoded, need to change once user id is secured
     @properties = Property.get_properties(user_id)
   end
   
