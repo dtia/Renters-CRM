@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218015726) do
+ActiveRecord::Schema.define(:version => 20121218050526) do
 
   create_table "applications", :force => true do |t|
     t.integer  "user_id"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20121218015726) do
     t.integer  "beds"
     t.integer  "baths"
     t.boolean  "has_parking"
-    t.float    "lat"
-    t.float    "lng"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"

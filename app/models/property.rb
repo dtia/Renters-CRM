@@ -1,9 +1,15 @@
 class Property < ActiveRecord::Base
-  attr_accessible :avail_date, :baths, :beds, :city, :deposit, :has_parking, :lat, :lng, :price, :state, :street, :unit
+  attr_accessible :avail_date, :baths, :beds, :city, :deposit, :has_parking, :latitude, :longitude, :price, :state, :street, :unit
   belongs_to :user
   has_many :applications
   has_many :users, :through => :applications
   validates :street, :city, :state, :user_id, :price, :presence => true
+  geocoded_by :address
+  after_validation :geocode
+  
+  def address
+    [street, city, state].compact.join(', ')
+  end
   
   def self.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, user_id)
     if Property.where("street = ? and unit = ? and city = ? and state = ?", street, unit, city, state).empty?
@@ -36,5 +42,5 @@ class Property < ActiveRecord::Base
     else
       return Property.where("city = ? and state = ?", city, state)
     end
-  end
+  end  
 end

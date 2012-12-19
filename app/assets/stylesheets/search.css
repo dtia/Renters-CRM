@@ -1,3 +1,7 @@
+#contents {
+	margin-top: 45px;
+}
+
 #sidebar {
 	position: absolute;
 	width: 400px;
@@ -6,7 +10,7 @@
 #mapDiv {
 	position: absolute;
 	left: 400px;
-	top: 0;
+	top: 40px;
 	bottom: 0;
 	right: 0;
 }
