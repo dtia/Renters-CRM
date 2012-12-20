@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>	
-
+<script type="text/javascript">
+var search_results = [<%= raw @search_results.to_json %>];
+</script>
 <body onload="initialize()">
 <div id="sidebar">
 	<h3>Listings</h3>
@@ -12,7 +14,7 @@
 		<% for listing in @search_results %>
 			<tr>
 				<td>
-					<h4><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h4>
+					<h5><a onclick="setMapCenter(<%= listing.latitude %>, <%= listing.longitude %>)"><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h5>
 				</td>
 				<td><h5><%= listing.price %></h5></td>
 				<td><%= listing.avail_date %></td>
