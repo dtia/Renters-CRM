@@ -1,7 +1,7 @@
 class PropertyController < ApplicationController
   def index
-    user_id = 13 #hardcoded, need to change once user id is secured
-    @properties = Property.get_properties(user_id)
+    fbid = params[:fbid]
+    @properties = Property.get_properties(fbid)
   end
   
   def new    
@@ -19,9 +19,9 @@ class PropertyController < ApplicationController
     price = params[:price]
     deposit = params[:deposit]
     has_parking = params[:has_parking]
-    user_id = 13 # this needs to be updated with user id. currently hardcoded with existing user id
+    fb_id = params[:uid]
     
-    Property.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, user_id)
+    Property.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, fb_id)
     redirect_to :action => "index"
   end
 end

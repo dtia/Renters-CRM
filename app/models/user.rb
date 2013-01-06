@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :payments
   validates :role, :email, :presence => true
   
-  def self.create(role, firstname, lastname, email, phone, ssn)
+  def self.create(role, firstname, lastname, email, phone, ssn, fbid)
     if User.where("email = ?", email).empty?
       user = User.new
       user.role = role
@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
       user.email = email
       user.phone = phone
       user.ssn = ssn
+      user.fbid = fbid
       user.save
     end
   end

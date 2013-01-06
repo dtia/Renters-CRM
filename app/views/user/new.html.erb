@@ -1,6 +1,7 @@
 <html>
   <body>
-	<%= form_tag("/user/create", :method => "post") do %>
+	<%= form_tag("/user/create", :method => "post", :name => "create_user") do %>
+		<%= hidden_field_tag :uid, "" %>
 		<%= label_tag(:role, "Role") %>
 		<%= select_tag(:role, options_for_select([['Manager', 1], ['Tenant', 2]], 1)) %>
 		<%= label_tag(:firstname, "First Name") %>
@@ -13,7 +14,7 @@
 	    <%= text_field_tag(:phone) %>
 		<%= label_tag(:ssn, "Social Security Number") %>
 	    <%= text_field_tag(:ssn) %>
-	<%= submit_tag("Create User") %>
+	<%= button_to_function "Create User", "checkFBLogin('create_user')" %>
 	<% end %>
   </body>
 	

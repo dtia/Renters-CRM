@@ -25,6 +25,61 @@ window.fbAsyncInit = function() {
    ref.parentNode.insertBefore(js, ref);
  }(document));
 
+function checkFBLogin(formName) {
+	// send user id
+	FB.getLoginStatus(function(response) {
+	  if (response.status === 'connected') {
+	    	var uid = response.authResponse.userID;
+			var accessToken = response.authResponse.accessToken;
+			$('#uid').val(uid);
+			console.log('user connected');
+		} 
+		else {
+			console.log('user not authorized');
+			FB.login(function(response) {
+				if (response.authResponse) {
+					var uid = response.authResponse.userID;
+					var accessToken = response.authResponse.accessToken;
+
+					// set user id of hidden field
+					$('#uid').val(uid);
+				} else {
+					console.log('User cancelled login or did not fully authorize.');
+				}
+			});
+		}
+		
+		document.forms[formName].submit();
+	});
+}
+
+function sendFBId() {
+	console.log('enter send fb id');
+	// send user id
+	FB.getLoginStatus(function(response) {
+		if (response.status === 'connected') {
+			postfbID(response);
+		} 
+		else {
+			console.log('user not authorized');
+			FB.login(function(response) {
+				if (response.authResponse) {
+					postfbID(response);
+				} else {
+					console.log('User cancelled login or did not fully authorize.');
+				}
+			});
+		}
+	});	
+}
+
+function postfbID(response) {
+	var uid = response.authResponse.userID;
+	var accessToken = response.authResponse.accessToken;
+	console.log('postin fb id');
+	$.get("/property", { fbid: uid });
+}
+
 var uid = '';
 function getUserData(loginStatusResponse) {
 
