@@ -1,6 +1,6 @@
 class PropertyController < ApplicationController
   def index
-    fbid = params[:fbid]
+    fbid = session[:fbid]
     @properties = Property.get_properties(fbid)
   end
   

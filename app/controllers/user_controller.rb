@@ -12,6 +12,8 @@ class UserController < ApplicationController
     phone = params[:phone]
     ssn = params[:ssn]
     
+    session[:fbid] = fbid
+    
     User.create(role, firstname, lastname, email, phone, ssn, fbid)
     redirect_to "/search_listings"
   end
