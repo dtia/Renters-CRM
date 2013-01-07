@@ -39,10 +39,10 @@ function checkFBLoginAndSubmitForm(formName) {
 				} else {
 					console.log('User cancelled login or did not fully authorize.');
 				}
-				
-				document.forms[formName].submit();
 			});
 		}
+		
+		document.forms[formName].submit();
 	});
 }
 
