@@ -7,13 +7,6 @@ window.fbAsyncInit = function() {
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
   });
-
-	FB.Event.subscribe('auth.statusChange', function(response) {
-	    if(response.status == 'connected') {
-	        hideLoginButton();
-			getUserData(response);
-	    }
-	});	
 };
 
 // Load the SDK Asynchronously
@@ -25,7 +18,7 @@ window.fbAsyncInit = function() {
    ref.parentNode.insertBefore(js, ref);
  }(document));
 
-function checkFBLogin(formName) {
+function checkFBLoginAndSubmitForm(formName) {
 	// send user id
 	FB.getLoginStatus(function(response) {
 	  if (response.status === 'connected') {
@@ -46,10 +39,29 @@ function checkFBLogin(formName) {
 				} else {
 					console.log('User cancelled login or did not fully authorize.');
 				}
+				
+				document.forms[formName].submit();
 			});
 		}
-		
-		document.forms[formName].submit();
+	});
+}
+
+function checkFBLogin() {
+	FB.getLoginStatus(function(response) {
+	  if (response.status !== 'connected') {
+			console.log('user not authorized');
+			FB.login(function(response) {
+				if (response.authResponse) {
+					var uid = response.authResponse.userID;
+					var accessToken = response.authResponse.accessToken;
+
+					// set user id of hidden field
+					$('#uid').val(uid);
+				} else {
+					console.log('User cancelled login or did not fully authorize.');
+				}
+			});
+		}
 	});
 }
 

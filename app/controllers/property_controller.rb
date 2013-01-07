@@ -1,6 +1,13 @@
 class PropertyController < ApplicationController
   def index
     fbid = session[:fbid]
+    
+    # account for null fb id
+    if fbid.nil?
+      fbid = params[:fbid]
+      puts 'this is the fbid ' + fbid
+    end
+    
     @properties = Property.get_properties(fbid)
   end
   
