@@ -5,7 +5,6 @@ class PropertyController < ApplicationController
     # account for null fb id
     if fbid.nil?
       fbid = params[:fbid]
-      puts 'this is the fbid ' + fbid
     end
     
     @properties = Property.get_properties(fbid)
