@@ -1,5 +1,5 @@
 <html>
-  <body onload="checkFBLoginAndSubmitForm('send_fblogin')">
+  <body onload="checkFBLogin('send_fblogin')">
 	<%= form_tag("/property/", :method => "get", :name => "send_fblogin") do %>
 		<%= hidden_field_tag :uid, "" %>
 	<% end %>

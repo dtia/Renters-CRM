@@ -45,7 +45,7 @@ function checkFBLoginAndSubmitForm(formName) {
 	});
 }
 
-function checkFBLogin() {
+function checkFBLogin(formName) {
 	FB.getLoginStatus(function(response) {
 	  if (response.status !== 'connected') {
 			console.log('user not authorized');
@@ -59,6 +59,8 @@ function checkFBLogin() {
 				} else {
 					console.log('User cancelled login or did not fully authorize.');
 				}
+
+				document.forms[formName].submit();
 			});
 		}
 	});
