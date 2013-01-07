@@ -9,6 +9,10 @@ class PropertyController < ApplicationController
     end
     
     @properties = Property.get_properties(fbid)
+    
+    if @properties.nil?
+      @properties = []
+    end
   end
   
   def new    
