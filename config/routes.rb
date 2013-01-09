@@ -13,6 +13,8 @@ RenterCrm::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
   match 'search_listings' => 'search#search_listings'
   match 'profile/me' => 'profile#me'
+  match 'auth' => 'auth#index'
+  match 'auth/callback' => 'auth#callback'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
