@@ -1,13 +1,13 @@
 class AuthController < ApplicationController
-
-  def index
+  
+  def index    
     @@config = { 
         :site => 'https://api.linkedin.com',
         :authorize_path => '/uas/oauth/authenticate',
-        :request_token_path => '/uas/oauth/requestToken?scope=r_network',   
+        :request_token_path => '/uas/oauth/requestToken?scope=r_fullprofile+r_network',
         :access_token_path => '/uas/oauth/accessToken' 
     }
-    
+
     # get your api keys at https://www.linkedin.com/secure/developer
     client = LinkedIn::Client.new("0g6bdi39wkev", "4PTap4tYgiYcv5Y6", @@config)
     request_token = client.request_token(:oauth_callback => "http://#{request.host_with_port}/auth/callback")
@@ -19,7 +19,7 @@ class AuthController < ApplicationController
   end
 
   def callback
-    client = LinkedIn::Client.new("0g6bdi39wkev", "4PTap4tYgiYcv5Y6")
+    client = LinkedIn::Client.new("0g6bdi39wkev", "4PTap4tYgiYcv5Y6", @@config)
     if session[:atoken].nil?
       pin = params[:oauth_verifier]
       atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
@@ -28,10 +28,20 @@ class AuthController < ApplicationController
     else
       client.authorize_from_access(session[:atoken], session[:asecret])
     end
-    @profile = client.profile
     
-    #this could be useful later
-    #@connections = client.connections 
+    
+    # need to figure out how to deserialize linkedin api data
+    # @profile = client.profile
+    #     puts @profile
+    #     
+    #     # profile_dec = ActiveSupport::JSON.decode(@profile)
+    #     #     puts profile_dec
+    #     
+    #     @positions = client.profile(:fields => %w(positions))
+    #     
+    #     @positions.each do |position|
+    #       puts ActiveSupport::JSON.decode(position)
+    #     end
     
     redirect_to profile_me_url
   end
