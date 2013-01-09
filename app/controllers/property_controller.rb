@@ -1,18 +1,8 @@
 class PropertyController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
-    fbid = session[:fbid]
-    
-    # account for null fb id
-    if fbid.nil?
-      fbid = params[:fbid]
-      session[:fbid] = fbid
-    end
-    
-    @properties = Property.get_properties(fbid)
-    
-    if @properties.nil?
-      @properties = []
-    end
+    @properties = Property.get_properties(current_user.id)
   end
   
   def new    
@@ -30,9 +20,8 @@ class PropertyController < ApplicationController
     price = params[:price]
     deposit = params[:deposit]
     has_parking = params[:has_parking]
-    fb_id = params[:uid]
     
-    Property.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, fb_id)
+    Property.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, current_user.id)
     redirect_to :action => "index"
   end
 end

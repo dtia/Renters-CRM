@@ -1,0 +1,12 @@
+<html>
+	<% for user in @me %>
+		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+		<h1><%= user.firstname %> <%= user.lastname %></h1>
+		<img src="https://graph.facebook.com/<%= user.uid %>/picture?width=300&height=300"/>
+		<h3>Credit score: <%= user.credit_score %></h3>
+		<h3>Background check:</h3>
+		<h3>Reviews:</h3>
+		<h3>Fill out Application</h3>
+		<h3>View Application</h3>
+	<% end %>	
+</html>

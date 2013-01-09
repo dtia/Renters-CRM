@@ -46,7 +46,7 @@ function addMarkersOnMap(lat, lng, street) {
 	locationData.push({ "latitude": lat, "longitude": lng, "title": street, "description": [] });
 }
 
-function setMapCenter(lat, lng) {
+function setMapCenterAndShowDetails(id, lat, lng) {
 	center = new Microsoft.Maps.Location(lat, lng);
 	map.setView({ 
 		center:  center,

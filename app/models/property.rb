@@ -11,13 +11,8 @@ class Property < ActiveRecord::Base
     [street, city, state].compact.join(', ')
   end
   
-  def self.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, fb_id)
-    if Property.where("street = ? and unit = ? and city = ? and state = ?", street, unit, city, state).empty?
-      # find user id for fb id
-      @user = find_user_id(fb_id) # get user id
-      if !@user.empty?
-        user_id = @user[0].id
-              
+  def self.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, uid)
+    if Property.where("street = ? and unit = ? and city = ? and state = ?", street, unit, city, state).empty?              
         prop = Property.new
         prop.beds = beds
         prop.baths = baths
@@ -30,19 +25,13 @@ class Property < ActiveRecord::Base
         prop.price = price
         prop.deposit = deposit
         prop.has_parking = has_parking
-        prop.user_id = user_id
+        prop.user_id = uid
         prop.save
-      end
     end
-  
   end
   
-  def self.get_properties(fbid)
-    @user = find_user_id(fbid) # get user id
-    if !@user.empty?
-      user_id = @user[0].id
-      return Property.where("user_id = ?", user_id)
-    end
+  def self.get_properties(uid)
+    return Property.where("user_id = ?", uid)
   end
   
   def self.get_matches(city, state, date)
@@ -52,10 +41,5 @@ class Property < ActiveRecord::Base
     else
       return Property.where("city = ? and state = ?", city, state)
     end
-  end 
-  
-  private
-    def self.find_user_id(fb_id)
-      return User.where("fbid = ?", fb_id)
-    end
+  end
 end

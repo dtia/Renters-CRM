@@ -14,11 +14,27 @@ var search_results = [<%= raw @search_results.to_json %>];
 		<% for listing in @search_results %>
 			<tr>
 				<td>
-					<h5><a onclick="setMapCenter(<%= listing.latitude %>, <%= listing.longitude %>)"><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h5>
+					<h5><a href="#propDetails<%= listing.id %>" data-backdrop="true" data-keyboard="true" data-toggle="modal" onclick="setMapCenterAndShowDetails(<%= listing.id %>, <%= listing.latitude %>, <%= listing.longitude %>)"><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h5>
 				</td>
 				<td><h5><%= listing.price %></h5></td>
 				<td><%= listing.avail_date %></td>
 			</tr>
+			
+			<!-- Modal -->
+			<div id="propDetails<%= listing.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			    <h3 id="myModalLabel"><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h3>
+			  </div>
+			  <div class="modal-body">
+			    <p>Description of this apartment</p>
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			    <button class="btn btn-primary">Apply</button>
+			  </div>
+			</div>
+			
 		<% end %>
 	</table>
 </div>

@@ -1,4 +1,6 @@
 RenterCrm::Application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -10,6 +12,7 @@ RenterCrm::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
   match 'search_listings' => 'search#search_listings'
+  match 'profile/me' => 'profile#me'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

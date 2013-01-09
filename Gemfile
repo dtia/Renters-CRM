@@ -39,3 +39,7 @@ gem 'jquery-rails'
 
 gem 'rails_config'
 gem 'geocoder'
+gem 'oauth'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'

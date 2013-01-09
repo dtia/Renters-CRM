@@ -1,10 +1,8 @@
 class UserController < ApplicationController
-  def new
-    
+  def new    
   end
   
   def create
-    fbid = params[:uid]
     role = params[:role]
     firstname = params[:firstname]
     lastname = params[:lastname]
@@ -12,9 +10,7 @@ class UserController < ApplicationController
     phone = params[:phone]
     ssn = params[:ssn]
     
-    session[:fbid] = fbid
-    
-    User.create(role, firstname, lastname, email, phone, ssn, fbid)
+    User.create(role, firstname, lastname, email, phone, ssn)
     redirect_to "/search_listings"
   end
 end

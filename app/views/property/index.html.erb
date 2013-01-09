@@ -1,8 +1,5 @@
 <html>
-  <body onload="checkFBLogin('send_fblogin')">
-	<%= form_tag("/property/", :method => "get", :name => "send_fblogin") do %>
-		<%= hidden_field_tag :uid, "" %>
-	<% end %>
+  <body>
 	<h1>Property Listings</h1>
 	<table class="table">
 		<th>Address</th>

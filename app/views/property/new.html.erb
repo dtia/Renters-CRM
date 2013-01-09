@@ -1,7 +1,6 @@
 <html>
   <body>
 	<%= form_tag("/property/create", :method => "post", :name => "new_property") do %>
-		<%= hidden_field_tag :uid, "" %>
 		<%= label_tag(:beds, "Beds") %>
 	    <%= text_field_tag(:beds) %>
 	    <%= label_tag(:baths, "Baths") %>
@@ -24,7 +23,7 @@
 		<%= text_field_tag(:deposit) %>
 		<%= label_tag(:parking, "Has Parking") %>
 		<%= select_tag(:parking, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
-	<%= button_to_function "Create Listing", "checkFBLoginAndSubmitForm('new_property')" %>
+	<%= submit_tag("Create Listing") %>
 	<% end %>
   </body>
 	
