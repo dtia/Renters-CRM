@@ -35,21 +35,14 @@ class AuthController < ApplicationController
     #     puts @profile
     #     
 
-     # user = client.profile(:fields => %w(positions))
-     #          puts user
-     #          companies = user.positions.all.map{|t| t.company.name}
-     #          puts companies
+     user = client.profile(:fields => %w(positions))
+     session[:position_map] = user.positions.all.map{|t| t}.take(3)
          
      user = client.profile(:fields => %w(educations))
+     puts user.educations.all.map{|t| t}
      session[:education_map] = user.educations.all.map{|t| t}
      
-     #companies = user.positions.all.map{|t| t.company.name}
-     
-     
-     # companies = user.positions.all.map{|t| t.company.name}
-     # puts companies
-    
-      redirect_to profile_me_url
+     redirect_to profile_me_url
   end
   
 end
