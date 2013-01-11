@@ -6,6 +6,8 @@ class SearchController < ApplicationController
     city_state = params[:city]
     date = params[:date]
     
+    @property = Property.new
+    
     if !city_state.nil?
       city_state_arr = city_state.split(",").collect{|x| x.strip}
       city = city_state_arr[0]

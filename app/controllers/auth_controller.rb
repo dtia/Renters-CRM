@@ -5,7 +5,7 @@ class AuthController < ApplicationController
         :site => 'https://api.linkedin.com',
         :authorize_path => '/uas/oauth/authenticate',
         :request_token_path => '/uas/oauth/requestToken?scope=r_fullprofile+r_network',
-        :access_token_path => '/uas/oauth/accessToken' 
+        :access_token_path => '/uas/oauth/accessToken'
     }
 
     # get your api keys at https://www.linkedin.com/secure/developer
@@ -34,16 +34,22 @@ class AuthController < ApplicationController
     # @profile = client.profile
     #     puts @profile
     #     
-    #     # profile_dec = ActiveSupport::JSON.decode(@profile)
-    #     #     puts profile_dec
-    #     
-    #     @positions = client.profile(:fields => %w(positions))
-    #     
-    #     @positions.each do |position|
-    #       puts ActiveSupport::JSON.decode(position)
-    #     end
+
+     # user = client.profile(:fields => %w(positions))
+     #          puts user
+     #          companies = user.positions.all.map{|t| t.company.name}
+     #          puts companies
+         
+     user = client.profile(:fields => %w(educations))
+     session[:education_map] = user.educations.all.map{|t| t}
+     
+     #companies = user.positions.all.map{|t| t.company.name}
+     
+     
+     # companies = user.positions.all.map{|t| t.company.name}
+     # puts companies
     
-    redirect_to profile_me_url
+      redirect_to profile_me_url
   end
   
 end

@@ -4,12 +4,12 @@ class Application < ActiveRecord::Base
   belongs_to :property
   belongs_to :application_data
   
-  def self.create_application(property_id, start_date, application_data_id)
-    app_data = Application_Data.where("userid = ?", current_user.id).first
+  def self.create_application(property_id, start_date, application_data_id, uid)
+    app_data = ApplicationData.where("userid = ?", uid).first
     
     if !app_data.nil?
       app = Application.new
-      app.user_id = current_user.id
+      app.user_id = uid
       app.property_id = property_id
       app.start_date = start_date
       app.application_data_id = application_data_id

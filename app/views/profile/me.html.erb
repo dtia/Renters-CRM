@@ -1,13 +1,22 @@
 <html>
 	<% for user in @me %>
-		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+		<%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
 		<br>
-		<%= link_to "Sign in with Linkedin", auth_url %>
+		<%= link_to "Connect with Linkedin", auth_url %>
 		
 		<h1><%= user.firstname %> <%= user.lastname %></h1>
 		<img src="https://graph.facebook.com/<%= user.uid %>/picture?width=300&height=300"/>
 		<h3>Credit score: <%= user.credit_score %></h3>
 		<h3>Background check:</h3>
+		<h3>Education</h3>
+		<% if !@education_map.nil? %>
+			<% @education_map.each do |education| %>
+				<h4><%= 'School: ' + education.school_name if !education.school_name.nil? %></h4>
+				<h4><%= 'Degree: ' + education.degree if !education.degree.nil? %></h4>
+				<h4><%= 'Date: ' + education.end_date.map{|k,v| v}[0].to_s() if !education.end_date.nil? %></h4>
+				<h4><%= 'Major: ' + education.field_of_study if !education.field_of_study.nil? %></h4>
+			<% end %>
+		<% end %>
 		<h3>Reviews:</h3>
 		<h3>Fill out Application</h3>
 		<h3>View Application</h3>

@@ -3,5 +3,6 @@ class ProfileController < ApplicationController
 
   def me
     @me = User.get_user(current_user.id)
+    @education_map = session[:education_map]
   end
 end

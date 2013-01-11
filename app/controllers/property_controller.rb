@@ -1,12 +1,11 @@
 class PropertyController < ApplicationController
   before_filter :authenticate_user!
-  #skip_before_filter  :verify_authenticity_token
   
   def index
     @properties = Property.get_properties(current_user.id)
   end
   
-  def new    
+  def new
   end
   
   def create
@@ -27,11 +26,9 @@ class PropertyController < ApplicationController
   end
   
   def apply
-    prop_id = params[:id]
+    prop_id = params[:prop_id]
     
-    puts 'property id: ' + prop_id
-    
-    app_data = Application_Data.where("userid = ?", current_user.id).first
+    app_data = ApplicationData.where("userid = ?", current_user.id).first
     
     # if application data does not exist for user yet, redirect to application page
     if app_data.nil?
@@ -39,7 +36,7 @@ class PropertyController < ApplicationController
       redirect_to new_application_url
     else
       # submit application data
-      Application.create_application(prop_id, Time.now, app_data.id)
+      Application.create_application(prop_id, Time.now, app_data.id, current_user.id)
       # notify client app has been created
     end
   end

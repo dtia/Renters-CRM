@@ -2,11 +2,11 @@ class ApplicationData < ActiveRecord::Base
   attr_accessible :bankruptcy, :convicted, :convicted_reason, :curr_city, :curr_date_in, :curr_date_out, :curr_landlord, :curr_landlord_phone, :curr_reason_leave, :curr_state, :curr_street_address, :curr_zip, :emerg_address, :emerg_name, :emerg_phone, :emerg_relationship, :employer, :employer_address, :employer_city, :employer_end, :employer_start, :employer_state, :employer_zip, :evicted, :evicted_reason, :occupation, :pets, :prev_city, :prev_date_in, :prev_date_out, :prev_landlord, :prev_landlord_phone, :prev_reason_leave, :prev_state, :prev_street_address, :prev_zip, :ref_address, :ref_name, :ref_phone, :ref_relationship, :refuse_rent, :salary, :supervisor, :supervisor_phone, :userid, :vehicle_license_state, :vehicle_make_model, :vehicle_year
   has_many :applications
   
-  def self.create_application_data(params)
-    app = Application.where("userid = ?", current_user.id).first
+  def self.create_application_data(params, uid)
+    app = ApplicationData.where("userid = ?", uid).first
     if app.nil?
-      app = Application.new
-      app.userid = current_user.id
+      app = ApplicationData.new
+      app.userid = uid
       app.curr_street_address = params[:curr_address]
       app.curr_city = params[:curr_city]
       app.curr_state = params[:curr_state]
