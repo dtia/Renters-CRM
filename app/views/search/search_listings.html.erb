@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>	
-<script type="text/javascript">
-var search_results = [<%= raw @search_results.to_json %>];
-</script>
 <body onload="initialize()">
 <div id="sidebar">
 	<h3>Listings</h3>
@@ -31,7 +28,7 @@ var search_results = [<%= raw @search_results.to_json %>];
 			  </div>
 			  <div class="modal-footer">
 			    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-			    <button class="btn btn-primary">Apply</button>
+			    <button class="btn btn-primary" onclick="apply(<%= listing.id %>)">Apply</button>
 			  </div>
 			</div>
 			

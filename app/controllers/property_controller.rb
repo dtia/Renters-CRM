@@ -1,5 +1,6 @@
 class PropertyController < ApplicationController
   before_filter :authenticate_user!
+  #skip_before_filter  :verify_authenticity_token
   
   def index
     @properties = Property.get_properties(current_user.id)
@@ -23,5 +24,23 @@ class PropertyController < ApplicationController
     
     Property.create(beds, baths, street, unit, city, state, zip, avail_date, price, deposit, has_parking, current_user.id)
     redirect_to :action => "index"
+  end
+  
+  def apply
+    prop_id = params[:id]
+    
+    puts 'property id: ' + prop_id
+    
+    app_data = Application_Data.where("userid = ?", current_user.id).first
+    
+    # if application data does not exist for user yet, redirect to application page
+    if app_data.nil?
+      session[:prop_id] = prop_id
+      redirect_to new_application_url
+    else
+      # submit application data
+      Application.create_application(prop_id, Time.now, app_data.id)
+      # notify client app has been created
+    end
   end
 end

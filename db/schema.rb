@@ -11,14 +11,68 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130108062955) do
+ActiveRecord::Schema.define(:version => 20130110220107) do
+
+  create_table "application_data", :force => true do |t|
+    t.string   "curr_street_address"
+    t.string   "curr_city"
+    t.string   "curr_state"
+    t.integer  "curr_zip"
+    t.date     "curr_date_in"
+    t.date     "curr_date_out"
+    t.string   "curr_landlord"
+    t.string   "curr_landlord_phone"
+    t.text     "curr_reason_leave"
+    t.string   "prev_street_address"
+    t.string   "prev_city"
+    t.string   "prev_state"
+    t.integer  "prev_zip"
+    t.date     "prev_date_in"
+    t.date     "prev_date_out"
+    t.string   "prev_landlord"
+    t.string   "prev_landlord_phone"
+    t.text     "prev_reason_leave"
+    t.string   "occupation"
+    t.string   "employer"
+    t.integer  "salary"
+    t.string   "supervisor"
+    t.string   "supervisor_phone"
+    t.date     "employer_start"
+    t.date     "employer_end"
+    t.string   "employer_address"
+    t.string   "employer_city"
+    t.string   "employer_state"
+    t.integer  "employer_zip"
+    t.string   "emerg_name"
+    t.string   "emerg_address"
+    t.string   "emerg_phone"
+    t.string   "emerg_relationship"
+    t.string   "ref_name"
+    t.string   "ref_address"
+    t.string   "ref_phone"
+    t.string   "ref_relationship"
+    t.boolean  "pets"
+    t.boolean  "bankruptcy"
+    t.boolean  "refuse_rent"
+    t.boolean  "evicted"
+    t.text     "evicted_reason"
+    t.boolean  "convicted"
+    t.text     "convicted_reason"
+    t.string   "vehicle_make_model"
+    t.integer  "vehicle_year"
+    t.string   "vehicle_license_state"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.integer  "userid"
+  end
 
   create_table "applications", :force => true do |t|
     t.integer  "user_id"
     t.integer  "property_id"
     t.date     "start_date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "application_data_id"
   end
 
   create_table "payments", :force => true do |t|

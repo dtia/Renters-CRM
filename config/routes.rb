@@ -15,6 +15,7 @@ RenterCrm::Application.routes.draw do
   match 'profile/me' => 'profile#me'
   match 'auth' => 'auth#index'
   match 'auth/callback' => 'auth#callback'
+  match 'property/apply' => 'property#apply', :via => :post
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -44,6 +45,11 @@ RenterCrm::Application.routes.draw do
     end
   end
   
+  resources :application do
+    member do
+      get 'new'
+    end
+  end
 
   # Sample resource route with sub-resources:
   #   resources :products do
