@@ -38,6 +38,7 @@ class PropertyController < ApplicationController
       # submit application data
       Application.create_application(prop_id, Time.now, app_data.id, current_user.id)
       # notify client app has been created
+      render :nothing => true
     end
   end
 end

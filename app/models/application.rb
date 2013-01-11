@@ -6,8 +6,9 @@ class Application < ActiveRecord::Base
   
   def self.create_application(property_id, start_date, application_data_id, uid)
     app_data = ApplicationData.where("userid = ?", uid).first
+    app = Application.where("user_id = ? and property_id = ?", uid, property_id)
     
-    if !app_data.nil?
+    if !app_data.nil? && app.empty?
       app = Application.new
       app.user_id = uid
       app.property_id = property_id
