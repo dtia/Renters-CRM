@@ -12,7 +12,6 @@ RenterCrm::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
   match 'search_listings' => 'search#search_listings'
-  match 'profile/me' => 'profile#me'
   match 'auth' => 'auth#index'
   match 'auth/callback' => 'auth#callback'
   match 'property/apply' => 'property#apply', :via => :post
@@ -31,10 +30,12 @@ RenterCrm::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  resources :property
-  
-  resources :user
-  
+  resources :property do
+    get 'applications'
+  end
+  resources :user  do
+    get 'profile'
+  end
   resources :app do
     post 'submit'
   end

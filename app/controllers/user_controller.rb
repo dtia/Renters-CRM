@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  before_filter :authenticate_user!
+  
   def new    
   end
   
@@ -12,5 +14,11 @@ class UserController < ApplicationController
     
     User.create(role, firstname, lastname, email, phone, ssn)
     redirect_to "/search_listings"
+  end
+  
+  def profile
+    @me = User.get_user(params[:user_id])
+    @education_map = session[:education_map]
+    @position_map = session[:position_map]
   end
 end

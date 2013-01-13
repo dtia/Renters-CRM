@@ -27,15 +27,26 @@ class PropertyController < ApplicationController
   
   def apply
     prop_id = params[:prop_id]
+    session[:prop_id] = prop_id
     
     app_data = ApplicationData.where("user_id = ?", current_user.id).first
 
-    session[:prop_id] = prop_id    
     # if application data does not exist for user yet, redirect to application page
     if app_data.nil?
       redirect_to new_application_url
     else
       redirect_to app_url(current_user.id)
     end
+  end
+  
+  def applications
+    prop_id = params[:property_id]
+    
+    @property = Property.get_property(prop_id).first
+    @applicants = User.get_users_for_apps(prop_id)
+    # name of applicant
+    # credit score
+    # link to app
+    # sort by credit score
   end
 end

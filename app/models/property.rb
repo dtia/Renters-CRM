@@ -31,7 +31,11 @@ class Property < ActiveRecord::Base
   end
   
   def self.get_properties(uid)
-    return Property.where("user_id = ?", uid)
+    Property.where("user_id = ?", uid)
+  end
+  
+  def self.get_property(id)
+    Property.where("id = ?", id)
   end
   
   def self.get_matches(city, state, date)

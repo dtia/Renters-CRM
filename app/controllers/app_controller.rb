@@ -25,7 +25,7 @@ class AppController < ApplicationController
     prop_id = session[:prop_id]
     app_data_id = params[:app_id]
     
-    if Application.get_application(current_user.id, prop_id).empty?
+    if Application.get_application_for_user(current_user.id, prop_id).empty?
       Application.create_application(prop_id, Time.now, app_data_id, current_user.id)
       flash[:notice] = "Application submitted successfully"
     else

@@ -8,7 +8,7 @@
 		<% for listing in @properties %>
 			<tr>
 				<td>
-					<h4><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h4>
+					<h4><a href="<%= property_applications_url(listing.id) %>"><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></a></h4>
 				</td>
 				<td><h5><%= listing.price %></h5></td>
 				<td><%= listing.avail_date %></td>

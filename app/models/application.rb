@@ -6,7 +6,7 @@ class Application < ActiveRecord::Base
   
   def self.create_application(property_id, start_date, application_data_id, uid)
     app_data = ApplicationData.where("user_id = ?", uid).first
-    app = get_application(uid, property_id)
+    app = get_application_for_user(uid, property_id)
     
     if !app_data.nil? && app.empty?
       app = Application.new
@@ -19,7 +19,11 @@ class Application < ActiveRecord::Base
     app
   end
   
-  def self.get_application(uid, property_id)
+  def self.get_application_for_user(uid, property_id)
     Application.where("user_id = ? and property_id = ?", uid, property_id)
+  end
+  
+  def self.get_applications_for_property(property_id)
+    Application.where("property_id = ?", property_id)
   end
 end

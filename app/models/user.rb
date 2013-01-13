@@ -55,7 +55,13 @@ class User < ActiveRecord::Base
   end
   
   def self.get_user(id)
-    return User.where("id = ?", id)
+    User.where("id = ?", id)
+  end
+  
+  def self.get_users_for_apps(prop_id)
+    User.select("u.*").
+        where("app.property_id = ?", prop_id).
+        joins("as u inner join applications as app on u.id = app.user_id")
   end
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

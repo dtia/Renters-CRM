@@ -11,10 +11,10 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<ul class="nav">
-		      <li><a href="/">Search Properties</a></li>
-		      <li><a href="/property/new">List Properties</a></li>
-		      <li><a href="/property/">View My Properties</a></li>
-		      <li><a href="/profile/me">View My Profile</a></li>
+		      <li><a href="<%= root_url %>">Search Properties</a></li>
+		      <li><a href="<%= new_property_url %>">List Properties</a></li>
+		      <li><a href="<%= property_index_url %>">View My Properties</a></li>
+		      <li><a href="<%= user_profile_url(current_user.id) %>">View My Profile</a></li>
 		    </ul>
 		</div>
 	</div>

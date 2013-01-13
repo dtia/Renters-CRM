@@ -6,7 +6,7 @@ class ApplicationData < ActiveRecord::Base
     app = ApplicationData.where("user_id = ?", uid).first
     if app.nil?
       app = ApplicationData.new
-      app.userid = uid
+      app.user_id = uid
       app.curr_street_address = params[:curr_address]
       app.curr_city = params[:curr_city]
       app.curr_state = params[:curr_state]

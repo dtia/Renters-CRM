@@ -1,0 +1,14 @@
+<html>
+	<h1>Applications for <%= @property.street %> <%= @property.city %> <%= @property.state %></h1>
+	
+	<table class="table">
+		<th>Applicant</th>
+		<th>Credit Score</th>
+		<% @applicants.each do |applicant| %>
+			<tr>
+				<td><h4><a href="<%= user_profile_url(applicant.id) %>"><%= applicant.firstname %> <%= applicant.lastname %></a></h4></td>
+				<td><h5><%= applicant.credit_score %></h5></td>
+			</tr>
+		<% end %>
+	</table>
+</html>
