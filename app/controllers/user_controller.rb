@@ -17,7 +17,7 @@ class UserController < ApplicationController
   end
   
   def profile
-    @me = User.get_user(params[:user_id])
+    @me = User.get_user(current_user.id)
     @education_map = session[:education_map]
     @position_map = session[:position_map]
   end
