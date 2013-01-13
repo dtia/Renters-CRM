@@ -1,2 +1,49 @@
-app_id: 388561364569457,
+app_id: 388561364569457
 app_secret: 06ce951e21d17b4c13e5f32c08cfc5ea
+curr_street_address: Current Street Address
+curr_city: Current City
+curr_state: Current State
+curr_zip: Current Zip
+curr_date_in: Current Date In
+curr_date_out: Current Date Out
+curr_landlord: Current Landlord
+curr_landlord_phone: Current Landlord Phone
+curr_reason_leave: Current Reason You are Leaving
+prev_street_address: Previous Street Address
+prev_city: Previous City
+prev_state: Previous State
+prev_zip: Previous Zip
+prev_date_in: Previous Date In
+prev_date_out: Previous Date Out
+prev_landlord: Previous Landlord
+prev_landlord_phone: Previous Landlord Phone
+prev_reason_leave: Previous Reason You Left
+occupation: Occupation
+employer: Employer
+salary: Salary
+supervisor: Supervisor
+supervisor_phone: Supervisor Phone
+employer_start: Employer Start Date
+employer_end: Employer End Date
+employer_address: Employer Address
+employer_city: Employer City
+employer_state: Employer State
+employer_zip: Employer Zip
+emerg_name: Emergency Contact Name
+emerg_address: Emergency Contact Address
+emerg_phone: Emergency Contact Phone Number
+emerg_relationship: Emergency Contact Relationship
+ref_name: Reference Name
+ref_address: Reference Address
+ref_phone: Reference Phone
+ref_relationship: Reference Relationship
+pets: Pets?
+bankruptcy: Ever filed for bankruptcy?
+refuse_rent: Have you ever refused rent?
+evicted: Have you ever been evicted before?
+evicted_reason: If yes what was the reason?
+convicted: Have you ever been convicted before?
+convicted_reason: If yes what was the reason
+vehicle_make_model: Make / Model of Vehicle
+vehicle_year: Vehicle year
+vehicle_license_state: Vehicle license / state

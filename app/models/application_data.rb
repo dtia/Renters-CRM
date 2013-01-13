@@ -3,7 +3,7 @@ class ApplicationData < ActiveRecord::Base
   has_many :applications
   
   def self.create_application_data(params, uid)
-    app = ApplicationData.where("userid = ?", uid).first
+    app = ApplicationData.where("user_id = ?", uid).first
     if app.nil?
       app = ApplicationData.new
       app.userid = uid

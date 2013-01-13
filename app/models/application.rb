@@ -5,8 +5,8 @@ class Application < ActiveRecord::Base
   belongs_to :application_data
   
   def self.create_application(property_id, start_date, application_data_id, uid)
-    app_data = ApplicationData.where("userid = ?", uid).first
-    app = Application.where("user_id = ? and property_id = ?", uid, property_id)
+    app_data = ApplicationData.where("user_id = ?", uid).first
+    app = get_application(uid, property_id)
     
     if !app_data.nil? && app.empty?
       app = Application.new
@@ -17,5 +17,9 @@ class Application < ActiveRecord::Base
       app.save
     end
     app
+  end
+  
+  def self.get_application(uid, property_id)
+    Application.where("user_id = ? and property_id = ?", uid, property_id)
   end
 end

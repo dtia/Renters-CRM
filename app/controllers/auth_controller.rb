@@ -29,8 +29,6 @@ class AuthController < ApplicationController
       client.authorize_from_access(session[:atoken], session[:asecret])
     end
     
-    
-    # need to figure out how to deserialize linkedin api data
     # @profile = client.profile
     #     puts @profile
     #     

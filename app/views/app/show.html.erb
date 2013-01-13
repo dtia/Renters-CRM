@@ -1,0 +1,12 @@
+<html>
+	<table class="table">
+		<% @app.attributes.each_pair do |k,v| %>
+			<tr>
+				<% if !Settings[k].blank? %>
+					<h4><%= Settings[k] + ' ' + v.to_s %></h4>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+	<%= button_to "Submit Application", app_submit_url(@app.id) %>
+</html>

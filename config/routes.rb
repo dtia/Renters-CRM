@@ -31,24 +31,12 @@ RenterCrm::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  resources :property do
-    member do
-      get 'new'
-      post 'create'
-    end
-  end
+  resources :property
   
-  resources :user do
-    member do
-      get 'new'
-      post 'create'
-    end
-  end
+  resources :user
   
-  resources :application do
-    member do
-      get 'new'
-    end
+  resources :app do
+    post 'submit'
   end
 
   # Sample resource route with sub-resources:

@@ -4,7 +4,8 @@ class SearchController < ApplicationController
   
   def search_listings
     city_state = params[:city]
-    date = params[:date]
+    date = params[:date]    
+    session[:city] = city_state
     
     @property = Property.new
     

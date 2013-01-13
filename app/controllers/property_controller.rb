@@ -28,17 +28,14 @@ class PropertyController < ApplicationController
   def apply
     prop_id = params[:prop_id]
     
-    app_data = ApplicationData.where("userid = ?", current_user.id).first
-    
+    app_data = ApplicationData.where("user_id = ?", current_user.id).first
+
+    session[:prop_id] = prop_id    
     # if application data does not exist for user yet, redirect to application page
     if app_data.nil?
-      session[:prop_id] = prop_id
       redirect_to new_application_url
     else
-      # submit application data
-      Application.create_application(prop_id, Time.now, app_data.id, current_user.id)
-      # notify client app has been created
-      render :nothing => true
+      redirect_to app_url(current_user.id)
     end
   end
 end

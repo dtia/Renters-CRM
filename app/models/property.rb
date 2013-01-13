@@ -3,7 +3,7 @@ class Property < ActiveRecord::Base
   belongs_to :user
   has_many :applications
   has_many :users, :through => :applications
-  validates :street, :city, :state, :user_id, :price, :presence => true
+  validates :street, :user_id, :price, :presence => true
   geocoded_by :address
   after_validation :geocode
   
@@ -39,7 +39,7 @@ class Property < ActiveRecord::Base
     if !date.nil? && !date.empty?
       return Property.where("city = ? and state = ? and avail_date = ?", city, state, date)
     else
-      return Property.where("city = ? and state = ?", city, state)
+      return Property.where("city = ? and state = ?", city, state) # fix this for just address
     end
   end
 end

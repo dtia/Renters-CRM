@@ -1,6 +1,6 @@
 <html>
   <body>
-	<%= form_tag("/property/create", :method => "post", :name => "new_property") do %>
+	<%= form_tag(property_index_url, :method => "post", :name => "new_property") do %>
 		<%= label_tag(:beds, "Beds") %>
 	    <%= text_field_tag(:beds) %>
 	    <%= label_tag(:baths, "Baths") %>

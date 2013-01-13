@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110220107) do
+ActiveRecord::Schema.define(:version => 20130112072651) do
 
   create_table "application_data", :force => true do |t|
     t.string   "curr_street_address"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20130110220107) do
     t.string   "vehicle_license_state"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
-    t.integer  "userid"
+    t.integer  "user_id"
   end
 
   create_table "applications", :force => true do |t|
