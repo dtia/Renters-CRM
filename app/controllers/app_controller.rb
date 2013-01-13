@@ -14,7 +14,7 @@ class AppController < ApplicationController
   
   def show
     @app = ApplicationData.where("user_id = ?", current_user.id)
-    if @app.nil?
+    if @app.blank?
       redirect_to new_app_url
     else      
       @app = @app.first

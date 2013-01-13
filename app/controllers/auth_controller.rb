@@ -37,7 +37,6 @@ class AuthController < ApplicationController
      session[:position_map] = user.positions.all.map{|t| t}.take(3)
          
      user = client.profile(:fields => %w(educations))
-     puts user.educations.all.map{|t| t}
      session[:education_map] = user.educations.all.map{|t| t}
      
      redirect_to profile_me_url
