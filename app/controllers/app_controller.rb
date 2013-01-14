@@ -9,7 +9,7 @@ class AppController < ApplicationController
     app_data = ApplicationData.create_application_data(params, current_user.id)
     app = Application.create_application(prop_id, Time.now, app_data.id, current_user.id)
     # notify client that app is submitted
-    redirect_to profile_user(current_user.id)
+    redirect_to profile_user_url(current_user.id)
   end
   
   def show
