@@ -44,9 +44,6 @@ class PropertyController < ApplicationController
     
     @property = Property.get_property(prop_id).first
     @applicants = User.get_users_for_apps(prop_id)
-    # name of applicant
-    # credit score
-    # link to app
     # sort by credit score
   end
 end

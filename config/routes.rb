@@ -31,13 +31,19 @@ RenterCrm::Application.routes.draw do
   #     end
   #   end
   resources :property do
-    get 'applications'
+    member do
+      get 'applications'
+    end
   end
   resources :user  do
-    get 'profile'
+    member do
+      get 'profile'
+    end
   end
   resources :app do
-    post 'submit'
+    member do
+      post 'submit'
+    end
   end
 
   # Sample resource route with sub-resources:

@@ -3,10 +3,15 @@
 		<% @app.attributes.each_pair do |k,v| %>
 			<tr>
 				<% if !Settings[k].blank? %>
-					<h4><%= Settings[k] + ' ' + v.to_s %></h4>
+					<td><b><%= Settings[k] %></b></td>
+					<td><%= v.to_s %></td>
 				<% end %>
 			</tr>
 		<% end %>
 	</table>
-	<%= button_to "Submit Application", app_submit_url(@app.id) %>
+	<%= link_to 'Edit Application', edit_app_url(@app.id) %>
+	<br><br>
+	<%= form_for @app, :url => app_submit_url(@app.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
+		<%= form.button 'Submit Application', :class => "btn btn-primary" %>
+	<% end %>
 </html>

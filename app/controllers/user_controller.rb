@@ -13,7 +13,7 @@ class UserController < ApplicationController
     ssn = params[:ssn]
     
     User.create(role, firstname, lastname, email, phone, ssn)
-    redirect_to "/search_listings"
+    redirect_to search_listings_url
   end
   
   def profile

@@ -33,4 +33,19 @@ class AppController < ApplicationController
     end
     redirect_to search_listings_url(:city => session[:city])
   end
+  
+  def edit
+    id = params[:id]
+    @app = ApplicationData.where("id = ?", id).first
+  end
+  
+  def update
+    @app = ApplicationData.find(params[:id])
+    if @app.update_attributes(params[:app])
+      flash[:notice] = "Application updated"
+    else
+      flash[:notice] = "Application update failed"
+    end
+    redirect_to app_url
+  end
 end
