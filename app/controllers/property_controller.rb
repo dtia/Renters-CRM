@@ -40,9 +40,9 @@ class PropertyController < ApplicationController
   end
   
   def applications
-    prop_id = params[:property_id]
+    prop_id = params[:id]
     
-    @property = Property.get_property(prop_id).first
+    @property = Property.find(prop_id)
     @applicants = User.get_users_for_apps(prop_id)
     # sort by credit score
   end
