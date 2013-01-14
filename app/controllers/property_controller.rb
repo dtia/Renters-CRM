@@ -33,7 +33,7 @@ class PropertyController < ApplicationController
 
     # if application data does not exist for user yet, redirect to application page
     if app_data.nil?
-      redirect_to new_application_url
+      redirect_to new_app_url
     else
       redirect_to app_url(current_user.id)
     end
