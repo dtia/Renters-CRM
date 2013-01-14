@@ -34,10 +34,6 @@ class Property < ActiveRecord::Base
     Property.where("user_id = ?", uid)
   end
   
-  def self.get_property(id)
-    Property.where("id = ?", id)
-  end
-  
   def self.get_matches(city, state, date)
     puts city + ' ' + state
     if !date.nil? && !date.empty?
