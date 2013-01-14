@@ -11,7 +11,7 @@
 	</table>
 	<%= link_to 'Edit Application', edit_app_url(@app.id) %>
 	<br><br>
-	<%= form_for @app, :url => app_submit_url(@app.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
+	<%= form_for @app, :url => submit_app_url(@app.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
 		<%= form.button 'Submit Application', :class => "btn btn-primary" %>
 	<% end %>
 </html>
