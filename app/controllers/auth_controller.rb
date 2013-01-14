@@ -39,7 +39,7 @@ class AuthController < ApplicationController
      user = client.profile(:fields => %w(educations))
      session[:education_map] = user.educations.all.map{|t| t}
      
-     redirect_to profile_me_url
+     redirect_to profile_user_url(current_user.id)
   end
   
 end
