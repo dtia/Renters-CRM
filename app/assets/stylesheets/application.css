@@ -12,3 +12,7 @@
  *= require_tree .
  *= require_tree ../../../vendor/assets/stylesheets
  */
+
+.reviewTextArea {
+	width: 500px;
+}

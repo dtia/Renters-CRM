@@ -1,23 +1,34 @@
 <html>
 	<div class="container">
-		<% for user in @me %>
-			<h1><%= user.firstname %> <%= user.lastname %></h1>
-			<% if !user.uid.blank? %>
-				<img src="https://graph.facebook.com/<%= user.uid %>/picture?width=300&height=300"/>
+		
+			<h1><%= @user.firstname %> <%= @user.lastname %></h1>
+			<% if !@user.uid.blank? %>
+				<img src="https://graph.facebook.com/<%= @user.uid %>/picture?width=300&height=300"/>
 			<% end %>
 			<br>
 			<%= link_to "Connect with FB", user_omniauth_authorize_path(:facebook) %>
 			<br>
 			<%= link_to "Connect with Linkedin", auth_url %>
 			<br>
-			<h4><%= link_to "View Application", app_url(user.id) %></h4>
+			<h4><%= link_to "View Application", app_url(@user.id) %></h4>
 			<hr>
-			<h3>Credit score: <span id="creditScore"><%= user.credit_score %></span></h3>
+			<h3>Credit score: <span id="creditScore"><%= @user.credit_score %></span></h3>
 			<%= link_to "Run Credit Check", "#", :onclick => "getCreditScore()" %>
 			<br>
 			Provided by <%= image_tag("bureaus.png") %>
 			<hr>
-			<h3>Background check:</h3>
+			<h3>Background check</h3>
+			<%= link_to "Run Background Check" %>
+			<ul>
+				<li>Driving and Vehicle Records</li>
+				<li>Criminal Records</li>
+				<li>Court and Legal Records</li>
+				<li>Bankruptcy</li>
+				<li>Property Ownership</li>
+				<li>Previous Employers</li>
+				<li>Sex Offender Registries</li>
+				<li>Citizenship Status</li>
+			</ul>
 			<hr>
 			<h3>Education</h3>
 			<% if !@education_map.nil? %>
@@ -37,7 +48,24 @@
 				<% end %>
 			<% end %>
 			<hr>
-			<h3>Reviews</h3>
+			<h3>Reviews for <%= @user.firstname %></h3>
+			<%  if !@reviews.blank? %>
+				<table class="table">
+					<% for review in @reviews %>
+					
+							<tr>
+								<td><%= review.review %></td>
+								<td><%= User.find(review.reviewer_id).firstname %> <%= User.find(review.reviewer_id).lastname %></td>
+							</tr>
+					<% end %>
+				</table>
+
+			<br>
+			<%= form_for :review, :url => submit_review_user_url(@user.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
+				<%= text_area(:review, :body, :size => "50x10", :class => "reviewTextArea") %>
+				<br>
+				<%= form.button 'Submit Review', :class => "btn btn-primary" %>
+			<% end %>
 		<% end %>	
 	</div>
 </html>

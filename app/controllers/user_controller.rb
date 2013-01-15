@@ -17,9 +17,14 @@ class UserController < ApplicationController
   end
   
   def profile
-    @me = User.get_user(current_user.id)
+    id = params[:id]
+    if id.blank?
+      id = current_user.id
+    end
+    @user = User.find(id)
     @education_map = session[:education_map]
     @position_map = session[:position_map]
+    @reviews = Review.find_all_by_user_id(id)
   end
 
   def credit_check
@@ -28,6 +33,15 @@ class UserController < ApplicationController
     user = User.find(current_user.id)
     user.credit_score = credit_score
     user.save
+  end
+  
+  def submit_review
+    review = Review.new
+    review.review = params[:review][:body]
+    review.user_id = params[:id]
+    review.reviewer_id = current_user.id
+    review.save
+    redirect_to :action => :profile, :id => params[:id]
   end
 
 end

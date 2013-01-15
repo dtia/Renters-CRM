@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :applications
   has_many :properties, :through => :applications
   has_many :payments
+  has_many :reviews
   validates :email, :presence => true
   
   def self.create(role, firstname, lastname, email, phone, ssn)
@@ -52,10 +53,6 @@ class User < ActiveRecord::Base
       match_user.save
       match_user
     end
-  end
-  
-  def self.get_user(id)
-    User.where("id = ?", id)
   end
   
   def self.get_users_for_apps(prop_id)
