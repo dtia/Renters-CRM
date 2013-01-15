@@ -22,4 +22,12 @@ class UserController < ApplicationController
     @position_map = session[:position_map]
   end
 
+  def credit_check
+    render :nothing => true
+    credit_score = params[:credit_score]
+    user = User.find(current_user.id)
+    user.credit_score = credit_score
+    user.save
+  end
+
 end

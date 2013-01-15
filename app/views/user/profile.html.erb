@@ -12,7 +12,7 @@
 			<br>
 			<h4><%= link_to "View Application", app_url(user.id) %></h4>
 			<hr>
-			<h3>Credit score: <span id="creditScore"></span></h3>
+			<h3>Credit score: <span id="creditScore"><%= user.credit_score %></span></h3>
 			<%= link_to "Run Credit Check", "#", :onclick => "getCreditScore()" %>
 			<br>
 			Provided by <%= image_tag("bureaus.png") %>

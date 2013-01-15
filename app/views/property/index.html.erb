@@ -1,20 +1,22 @@
 <html>
   <body>
-	<h1>Property Listings</h1>
-	<table class="table">
-		<th>Address</th>
-		<th>Rate</th>
-		<th>Available Date</th>
-		<% for listing in @properties %>
-			<tr>
-				<td>
-					<h4><a href="<%= applications_property_url(listing.id) %>"><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></a></h4>
-				</td>
-				<td><h5><%= listing.price %></h5></td>
-				<td><%= listing.avail_date %></td>
-			</tr>
-		<% end %>
-	</table>
+	<div class="container">
+		<h1>Property Listings</h1>
+		<table class="table">
+			<th>Address</th>
+			<th>Rate</th>
+			<th>Available Date</th>
+			<% for listing in @properties %>
+				<tr>
+					<td>
+						<h4><a href="<%= applications_property_url(listing.id) %>"><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></a></h4>
+					</td>
+					<td><h5><%= listing.price %></h5></td>
+					<td><%= listing.avail_date %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
   </body>
 	
 </html>
