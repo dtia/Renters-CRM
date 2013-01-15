@@ -59,13 +59,12 @@
 							</tr>
 					<% end %>
 				</table>
-
+			<% end %>
 			<br>
 			<%= form_for :review, :url => submit_review_user_url(@user.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
 				<%= text_area(:review, :body, :size => "50x10", :class => "reviewTextArea") %>
 				<br>
-				<%= form.button 'Submit Review', :class => "btn btn-primary" %>
-			<% end %>
+				<%= form.button 'Submit Review', :class => "btn btn-primary" %>			
 		<% end %>	
 	</div>
 </html>
