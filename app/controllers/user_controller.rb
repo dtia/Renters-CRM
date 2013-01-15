@@ -21,4 +21,5 @@ class UserController < ApplicationController
     @education_map = session[:education_map]
     @position_map = session[:position_map]
   end
+
 end

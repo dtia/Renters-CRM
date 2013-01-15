@@ -1,37 +1,43 @@
 <html>
-	<% for user in @me %>
-		<%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
-		<br>
-		<%= link_to "Connect with Linkedin", auth_url %>
-		
-		<h1><%= user.firstname %> <%= user.lastname %></h1>
-		<img src="https://graph.facebook.com/<%= user.uid %>/picture?width=300&height=300"/>
-		<h3><%= link_to "View Application", app_url(user.id) %></h3>
-		<hr>
-		<h3>Credit score: <%= user.credit_score %></h3>
-		<h3>Background check:</h3>
-		<hr>
-		<h3>Education</h3>
-		<% if !@education_map.nil? %>
-			<% @education_map.each do |education| %>
-				<h4><%= 'School: ' + education.school_name if !education.school_name.nil? %></h4>
-				<h4><%= 'Degree: ' + education.degree if !education.degree.nil? %></h4>
-				<h4><%= 'Date: ' + education.end_date.map{|k,v| v}[0].to_s() if !education.end_date.nil? %></h4>
-				<h4><%= 'Major: ' + education.field_of_study if !education.field_of_study.nil? %></h4>
+	<div class="container">
+		<% for user in @me %>
+			<h1><%= user.firstname %> <%= user.lastname %></h1>
+			<% if !user.uid.blank? %>
+				<img src="https://graph.facebook.com/<%= user.uid %>/picture?width=300&height=300"/>
 			<% end %>
-		<% end %>
-		<hr>
-		<h3>Positions</h3>
-		<% if !@position_map.nil? %>
-			<% @position_map.each do |position| %>
-				<h4><%= 'Title: ' + position.title if !position.title.nil? %></h4>
-				<h4><%= 'Company: ' + position.company.name if !position.company.name.nil? %></h4>
+			<br>
+			<%= link_to "Connect with FB", user_omniauth_authorize_path(:facebook) %>
+			<br>
+			<%= link_to "Connect with Linkedin", auth_url %>
+			<br>
+			<h4><%= link_to "View Application", app_url(user.id) %></h4>
+			<hr>
+			<h3>Credit score: <span id="creditScore"></span></h3>
+			<%= link_to "Run Credit Check", "#", :onclick => "getCreditScore()" %>
+			<br>
+			Provided by <%= image_tag("bureaus.png") %>
+			<hr>
+			<h3>Background check:</h3>
+			<hr>
+			<h3>Education</h3>
+			<% if !@education_map.nil? %>
+				<% @education_map.each do |education| %>
+					<h4><%= 'School: ' + education.school_name if !education.school_name.nil? %></h4>
+					<h4><%= 'Degree: ' + education.degree if !education.degree.nil? %></h4>
+					<h4><%= 'Date: ' + education.end_date.map{|k,v| v}[0].to_s() if !education.end_date.nil? %></h4>
+					<h4><%= 'Major: ' + education.field_of_study if !education.field_of_study.nil? %></h4>
+				<% end %>
 			<% end %>
-		<% end %>
-		<hr>
-		<h3>Reviews</h3>
-		<hr>
-		<h3>Recommendations</h3>
-		<hr>
-	<% end %>	
+			<hr>
+			<h3>Positions</h3>
+			<% if !@position_map.nil? %>
+				<% @position_map.each do |position| %>
+					<h4><%= 'Title: ' + position.title if !position.title.nil? %></h4>
+					<h4><%= 'Company: ' + position.company.name if !position.company.name.nil? %></h4>
+				<% end %>
+			<% end %>
+			<hr>
+			<h3>Reviews</h3>
+		<% end %>	
+	</div>
 </html>

@@ -17,3 +17,13 @@
 //= require_tree .
 //= require bootstrap.min
 //= require fb
+
+function getCreditScore() {
+	$("#creditScore").html(getRandomCreditScore());
+}
+
+function getRandomCreditScore() {
+	var randIncrement = Math.floor(Math.random()*101);
+	var baseScore = 700;
+	return baseScore + randIncrement;
+}

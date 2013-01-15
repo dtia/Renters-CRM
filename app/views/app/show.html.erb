@@ -1,17 +1,19 @@
 <html>
-	<table class="table">
-		<% @app.attributes.each_pair do |k,v| %>
-			<tr>
-				<% if !Settings[k].blank? %>
-					<td><b><%= Settings[k] %></b></td>
-					<td><%= v.to_s %></td>
-				<% end %>
-			</tr>
+	<div class="container">
+		<table class="table">
+			<% @app.attributes.each_pair do |k,v| %>
+				<tr>
+					<% if !Settings[k].blank? %>
+						<td><b><%= Settings[k] %></b></td>
+						<td><%= v.to_s %></td>
+					<% end %>
+				</tr>
+			<% end %>
+		</table>
+		<%= link_to 'Edit Application', edit_app_url(@app.id) %>
+		<br><br>
+		<%= form_for @app, :url => submit_app_url(@app.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
+			<%= form.button 'Submit Application', :class => "btn btn-primary" %>
 		<% end %>
-	</table>
-	<%= link_to 'Edit Application', edit_app_url(@app.id) %>
-	<br><br>
-	<%= form_for @app, :url => submit_app_url(@app.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
-		<%= form.button 'Submit Application', :class => "btn btn-primary" %>
-	<% end %>
+	</div>
 </html>
