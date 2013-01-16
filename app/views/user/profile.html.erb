@@ -18,16 +18,16 @@
 			Provided by <%= image_tag("bureaus.png") %>
 			<hr>
 			<h3>Background check</h3>
-			<%= link_to "Run Background Check" %>
-			<ul>
-				<li>Driving and Vehicle Records</li>
-				<li>Criminal Records</li>
-				<li>Court and Legal Records</li>
-				<li>Bankruptcy</li>
-				<li>Property Ownership</li>
-				<li>Previous Employers</li>
-				<li>Sex Offender Registries</li>
-				<li>Citizenship Status</li>
+			<%= link_to "Run Background Check", "#", :onclick => "getBackgroundCheck()" %>
+			<ul id="backgroundCheck">
+				<li>Driving and Vehicle Records: None</li>
+				<li>Criminal Records: None</li>
+				<li>Court and Legal Records: None</li>
+				<li>Bankruptcy: None</li>
+				<li>Property Ownership: None</li>
+				<li>Previous Employers: None</li>
+				<li>Sex Offender Registries: None</li>
+				<li>Citizenship Status: None</li>
 			</ul>
 			<hr>
 			<h3>Education</h3>

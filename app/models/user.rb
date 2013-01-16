@@ -58,7 +58,8 @@ class User < ActiveRecord::Base
   def self.get_users_for_apps(prop_id)
     User.select("u.*").
         where("app.property_id = ?", prop_id).
-        joins("as u inner join applications as app on u.id = app.user_id")
+        joins("as u inner join applications as app on u.id = app.user_id").
+        order("credit_score DESC")
   end
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

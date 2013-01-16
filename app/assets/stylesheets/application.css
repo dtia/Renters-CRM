@@ -16,3 +16,7 @@
 .reviewTextArea {
 	width: 500px;
 }
+
+#backgroundCheck {
+	display: none;
+}

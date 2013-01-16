@@ -44,6 +44,5 @@ class PropertyController < ApplicationController
     
     @property = Property.find(prop_id)
     @applicants = User.get_users_for_apps(prop_id)
-    # sort by credit score
   end
 end
