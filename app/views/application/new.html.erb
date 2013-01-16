@@ -1,109 +1,111 @@
 <html>
   <body>
-	<%= form_tag(app_index_url, :method => "post") do %>
-		<%= label_tag(:curr_address, "Current Street Address") %>
-	    <%= text_field_tag(:curr_address) %>
-		<%= label_tag(:curr_city, "Current City") %>
-	    <%= text_field_tag(:curr_city) %>
-		<%= label_tag(:curr_state, "Current State") %>
-	    <%= text_field_tag(:curr_state) %>
-		<%= label_tag(:curr_zip, "Current Zip") %>
-	    <%= text_field_tag(:curr_zip) %>
-		<%= label_tag(:curr_date_in, "Current Date In") %>
-	    <%= text_field_tag(:curr_date_in) %>
-		<%= label_tag(:curr_date_out, "Current Date Out") %>
-	    <%= text_field_tag(:curr_date_out) %>
-		<%= label_tag(:curr_landlord, "Current Landlord") %>
-	    <%= text_field_tag(:curr_landlord) %>
-		<%= label_tag(:curr_landlord_phone, "Current Landlord Phone") %>
-	    <%= text_field_tag(:curr_landlord_phone) %>
-		<%= label_tag(:curr_reason_leave, "Current Reason Leave") %>
-	    <%= text_field_tag(:curr_reason_leave) %>
+	<div class="container">
+		<%= form_tag(app_index_url, :method => "post") do %>
+			<%= label_tag(:curr_address, "Current Street Address") %>
+		    <%= text_field_tag(:curr_address) %>
+			<%= label_tag(:curr_city, "Current City") %>
+		    <%= text_field_tag(:curr_city) %>
+			<%= label_tag(:curr_state, "Current State") %>
+		    <%= text_field_tag(:curr_state) %>
+			<%= label_tag(:curr_zip, "Current Zip") %>
+		    <%= text_field_tag(:curr_zip) %>
+			<%= label_tag(:curr_date_in, "Current Date In") %>
+		    <%= text_field_tag(:curr_date_in) %>
+			<%= label_tag(:curr_date_out, "Current Date Out") %>
+		    <%= text_field_tag(:curr_date_out) %>
+			<%= label_tag(:curr_landlord, "Current Landlord") %>
+		    <%= text_field_tag(:curr_landlord) %>
+			<%= label_tag(:curr_landlord_phone, "Current Landlord Phone") %>
+		    <%= text_field_tag(:curr_landlord_phone) %>
+			<%= label_tag(:curr_reason_leave, "Current Reason Leave") %>
+		    <%= text_field_tag(:curr_reason_leave) %>
 		
-		<%= label_tag(:prev_address, "Previous Street Address") %>
-	    <%= text_field_tag(:prev_address) %>
-		<%= label_tag(:prev_city, "Previous City") %>
-	    <%= text_field_tag(:prev_city) %>
-		<%= label_tag(:prev_state, "Previous State") %>
-	    <%= text_field_tag(:prev_state) %>
-		<%= label_tag(:prev_zip, "Previous Zip") %>
-	    <%= text_field_tag(:prev_zip) %>
-		<%= label_tag(:prev_date_in, "Previous Date In") %>
-	    <%= text_field_tag(:prev_date_in) %>
-		<%= label_tag(:prev_date_out, "Previous Date Out") %>
-	    <%= text_field_tag(:prev_date_out) %>
-		<%= label_tag(:prev_landlord, "Previous Landlord") %>
-	    <%= text_field_tag(:prev_landlord) %>
-		<%= label_tag(:prev_landlord_phone, "Previous Landlord Phone") %>
-	    <%= text_field_tag(:prev_landlord_phone) %>
-		<%= label_tag(:prev_reason_leave, "Previous Reason Leave") %>
-	    <%= text_field_tag(:prev_reason_leave) %>
+			<%= label_tag(:prev_address, "Previous Street Address") %>
+		    <%= text_field_tag(:prev_address) %>
+			<%= label_tag(:prev_city, "Previous City") %>
+		    <%= text_field_tag(:prev_city) %>
+			<%= label_tag(:prev_state, "Previous State") %>
+		    <%= text_field_tag(:prev_state) %>
+			<%= label_tag(:prev_zip, "Previous Zip") %>
+		    <%= text_field_tag(:prev_zip) %>
+			<%= label_tag(:prev_date_in, "Previous Date In") %>
+		    <%= text_field_tag(:prev_date_in) %>
+			<%= label_tag(:prev_date_out, "Previous Date Out") %>
+		    <%= text_field_tag(:prev_date_out) %>
+			<%= label_tag(:prev_landlord, "Previous Landlord") %>
+		    <%= text_field_tag(:prev_landlord) %>
+			<%= label_tag(:prev_landlord_phone, "Previous Landlord Phone") %>
+		    <%= text_field_tag(:prev_landlord_phone) %>
+			<%= label_tag(:prev_reason_leave, "Previous Reason Leave") %>
+		    <%= text_field_tag(:prev_reason_leave) %>
 	
-		<%= label_tag(:occupation, "Occupation") %>
-	    <%= text_field_tag(:occupation) %>
-		<%= label_tag(:employer, "Employer") %>
-	    <%= text_field_tag(:employer) %>
-		<%= label_tag(:salary, "Salary") %>
-	    <%= text_field_tag(:salary) %>
-		<%= label_tag(:supervisor, "Supervisor") %>
-	    <%= text_field_tag(:supervisor) %>
-		<%= label_tag(:employer_start, "Employer Start Date") %>
-	    <%= text_field_tag(:employer_start) %>
-		<%= label_tag(:employer_end, "Employer End Date") %>
-	    <%= text_field_tag(:employer_end) %>
-		<%= label_tag(:emp_address, "Employer Street Address") %>
-	    <%= text_field_tag(:emp_address) %>
-		<%= label_tag(:emp_city, "Employer City") %>
-	    <%= text_field_tag(:emp_city) %>
-		<%= label_tag(:emp_state, "Employer State") %>
-	    <%= text_field_tag(:emp_state) %>
-		<%= label_tag(:emp_zip, "Employer Zip") %>
-	    <%= text_field_tag(:emp_zip) %>
+			<%= label_tag(:occupation, "Occupation") %>
+		    <%= text_field_tag(:occupation) %>
+			<%= label_tag(:employer, "Employer") %>
+		    <%= text_field_tag(:employer) %>
+			<%= label_tag(:salary, "Salary") %>
+		    <%= text_field_tag(:salary) %>
+			<%= label_tag(:supervisor, "Supervisor") %>
+		    <%= text_field_tag(:supervisor) %>
+			<%= label_tag(:employer_start, "Employer Start Date") %>
+		    <%= text_field_tag(:employer_start) %>
+			<%= label_tag(:employer_end, "Employer End Date") %>
+		    <%= text_field_tag(:employer_end) %>
+			<%= label_tag(:emp_address, "Employer Street Address") %>
+		    <%= text_field_tag(:emp_address) %>
+			<%= label_tag(:emp_city, "Employer City") %>
+		    <%= text_field_tag(:emp_city) %>
+			<%= label_tag(:emp_state, "Employer State") %>
+		    <%= text_field_tag(:emp_state) %>
+			<%= label_tag(:emp_zip, "Employer Zip") %>
+		    <%= text_field_tag(:emp_zip) %>
 
-		<%= label_tag(:emerg_name, "Emergency Contact Name") %>
-	    <%= text_field_tag(:emerg_name) %>
-		<%= label_tag(:emerg_address, "Emergency Contact Address") %>
-	    <%= text_field_tag(:emerg_address) %>
-		<%= label_tag(:emerg_phone, "Emergency Contact Phone") %>
-	    <%= text_field_tag(:emerg_phone) %>
-		<%= label_tag(:emerg_relationship, "Emergency Contact Relationship") %>
-	    <%= text_field_tag(:emerg_relationship) %>
+			<%= label_tag(:emerg_name, "Emergency Contact Name") %>
+		    <%= text_field_tag(:emerg_name) %>
+			<%= label_tag(:emerg_address, "Emergency Contact Address") %>
+		    <%= text_field_tag(:emerg_address) %>
+			<%= label_tag(:emerg_phone, "Emergency Contact Phone") %>
+		    <%= text_field_tag(:emerg_phone) %>
+			<%= label_tag(:emerg_relationship, "Emergency Contact Relationship") %>
+		    <%= text_field_tag(:emerg_relationship) %>
 	
-		<%= label_tag(:ref_name, "Reference Contact Name") %>
-	    <%= text_field_tag(:ref_name) %>
-		<%= label_tag(:ref_address, "Reference Contact Address") %>
-	    <%= text_field_tag(:ref_address) %>
-		<%= label_tag(:ref_phone, "Reference Contact Phone") %>
-	    <%= text_field_tag(:ref_phone) %>
-		<%= label_tag(:ref_relationship, "Reference Contact Relationship") %>
-	    <%= text_field_tag(:ref_relationship) %>
+			<%= label_tag(:ref_name, "Reference Contact Name") %>
+		    <%= text_field_tag(:ref_name) %>
+			<%= label_tag(:ref_address, "Reference Contact Address") %>
+		    <%= text_field_tag(:ref_address) %>
+			<%= label_tag(:ref_phone, "Reference Contact Phone") %>
+		    <%= text_field_tag(:ref_phone) %>
+			<%= label_tag(:ref_relationship, "Reference Contact Relationship") %>
+		    <%= text_field_tag(:ref_relationship) %>
 	
-		<%= label_tag(:pets, "Have Pets?") %>
-		<%= select_tag(:pets, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
-		<%= label_tag(:bankruptcy, "Bankrupt before?") %>
-		<%= select_tag(:bankruptcy, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
-		<%= label_tag(:refuse_rent, "Have you refused to pay rent when it was due?") %>
-		<%= select_tag(:refuse_rent, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
+			<%= label_tag(:pets, "Have Pets?") %>
+			<%= select_tag(:pets, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
+			<%= label_tag(:bankruptcy, "Bankrupt before?") %>
+			<%= select_tag(:bankruptcy, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
+			<%= label_tag(:refuse_rent, "Have you refused to pay rent when it was due?") %>
+			<%= select_tag(:refuse_rent, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
 	
-		<%= label_tag(:evicted, "Have you been evicted before?") %>
-		<%= select_tag(:evicted, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
-		<%= label_tag(:evicted_reason, "If yes, explain why.") %>
-	    <%= text_field_tag(:evicted_reason) %>
+			<%= label_tag(:evicted, "Have you been evicted before?") %>
+			<%= select_tag(:evicted, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
+			<%= label_tag(:evicted_reason, "If yes, explain why.") %>
+		    <%= text_field_tag(:evicted_reason) %>
 	
-		<%= label_tag(:convicted, "Have you been convicted before?") %>
-		<%= select_tag(:convicted, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
-		<%= label_tag(:convicted_reason, "If yes, explain why.") %>
-	    <%= text_field_tag(:convicted_reason) %>
+			<%= label_tag(:convicted, "Have you been convicted before?") %>
+			<%= select_tag(:convicted, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
+			<%= label_tag(:convicted_reason, "If yes, explain why.") %>
+		    <%= text_field_tag(:convicted_reason) %>
 	
-		<%= label_tag(:vehicle_make_model, "Vehicle Make / Model") %>
-	    <%= text_field_tag(:vehicle_make_model) %>
-		<%= label_tag(:vehicle_year, "Vehicle Year") %>
-	    <%= text_field_tag(:vehicle_year) %>
-		<%= label_tag(:vehicle_license_state, "Vehicle License / State") %>
-	    <%= text_field_tag(:vehicle_license_state) %>
-		<br>
-	<%= submit_tag("Create Application") %>
-	<% end %>
+			<%= label_tag(:vehicle_make_model, "Vehicle Make / Model") %>
+		    <%= text_field_tag(:vehicle_make_model) %>
+			<%= label_tag(:vehicle_year, "Vehicle Year") %>
+		    <%= text_field_tag(:vehicle_year) %>
+			<%= label_tag(:vehicle_license_state, "Vehicle License / State") %>
+		    <%= text_field_tag(:vehicle_license_state) %>
+			<br>
+		<%= submit_tag("Create Application") %>
+		<% end %>
+	</div>
   </body>
 	
 </html>

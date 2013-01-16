@@ -24,6 +24,7 @@
 			<%= text_field_tag(:deposit) %>
 			<%= label_tag(:parking, "Has Parking") %>
 			<%= select_tag(:parking, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
+			<br>
 		<%= submit_tag("Create Listing") %>
 		<% end %>
 	</div>
