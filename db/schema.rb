@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115062835) do
+ActiveRecord::Schema.define(:version => 20130116035808) do
 
   create_table "application_data", :force => true do |t|
     t.string   "curr_street_address"
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(:version => 20130115062835) do
     t.integer  "application_data_id"
   end
 
+  create_table "educations", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "school"
+    t.string   "degree"
+    t.date     "date"
+    t.string   "major"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "payments", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -82,6 +92,17 @@ ActiveRecord::Schema.define(:version => 20130115062835) do
     t.integer  "cc_num"
     t.date     "exp_date"
     t.integer  "sec_code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "positions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "company"
+    t.date     "startdate"
+    t.date     "enddate"
+    t.boolean  "current"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

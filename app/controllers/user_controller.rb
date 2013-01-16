@@ -22,8 +22,8 @@ class UserController < ApplicationController
       id = current_user.id
     end
     @user = User.find(id)
-    @education_map = session[:education_map]
-    @position_map = session[:position_map]
+    @education_map = Education.find_all_by_user_id(id)
+    @position_map = Position.find_all_by_user_id(id)
     @reviews = Review.find_all_by_user_id(id)
   end
 

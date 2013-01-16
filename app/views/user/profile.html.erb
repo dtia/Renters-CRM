@@ -33,10 +33,10 @@
 			<h3>Education</h3>
 			<% if !@education_map.nil? %>
 				<% @education_map.each do |education| %>
-					<h4><%= 'School: ' + education.school_name if !education.school_name.nil? %></h4>
+					<h4><%= 'School: ' + education.school if !education.school.nil? %></h4>
 					<h4><%= 'Degree: ' + education.degree if !education.degree.nil? %></h4>
-					<h4><%= 'Date: ' + education.end_date.map{|k,v| v}[0].to_s() if !education.end_date.nil? %></h4>
-					<h4><%= 'Major: ' + education.field_of_study if !education.field_of_study.nil? %></h4>
+					<h4><%= 'Date: ' + education.date.year.to_s if !education.date.nil? %></h4>
+					<h4><%= 'Major: ' + education.major if !education.major.nil? %></h4>
 				<% end %>
 			<% end %>
 			<hr>
@@ -44,7 +44,9 @@
 			<% if !@position_map.nil? %>
 				<% @position_map.each do |position| %>
 					<h4><%= 'Title: ' + position.title if !position.title.nil? %></h4>
-					<h4><%= 'Company: ' + position.company.name if !position.company.name.nil? %></h4>
+					<h4><%= 'Company: ' + position.company if !position.company.nil? %></h4>
+					<h4><%= 'Start Date: ' + position.startdate.month.to_s + '/' + position.startdate.year.to_s if !position.startdate.nil? %></h4>
+					<h4><%= 'End Date: ' + position.enddate.month.to_s + '/' + position.enddate.year.to_s if !position.enddate.nil? %></h4>
 				<% end %>
 			<% end %>
 			<hr>
@@ -64,7 +66,7 @@
 			<%= form_for :review, :url => submit_review_user_url(@user.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
 				<%= text_area(:review, :body, :size => "50x10", :class => "reviewTextArea") %>
 				<br>
-				<%= form.button 'Submit Review', :class => "btn btn-primary" %>			
+				<%= form.button 'Submit Review', :class => "btn btn-primary" %>
 		<% end %>	
 	</div>
 </html>

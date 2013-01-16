@@ -29,17 +29,19 @@ class AuthController < ApplicationController
       client.authorize_from_access(session[:atoken], session[:asecret])
     end
     
-    # @profile = client.profile
-    #     puts @profile
-    #     
-
-     user = client.profile(:fields => %w(positions))
-     session[:position_map] = user.positions.all.map{|t| t}.take(3)
-         
-     user = client.profile(:fields => %w(educations))
-     session[:education_map] = user.educations.all.map{|t| t}
-     
-     redirect_to profile_user_url(current_user.id)
+    insert_linkedin_fields(client)
+    redirect_to profile_user_url(current_user.id)
   end
   
+  private
+    def insert_linkedin_fields(client)
+      user = client.profile(:fields => %w(positions))
+      positions = user.positions.all.map{|t| t}.take(3)
+      Position.insert_positions(positions, current_user.id)
+
+      user = client.profile(:fields => %w(educations))
+      educations = user.educations.all.map{|t| t}
+      puts educations
+      Education.insert_educations(educations, current_user.id)
+    end
 end
