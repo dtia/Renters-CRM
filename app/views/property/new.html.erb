@@ -19,7 +19,7 @@
 	<div class="container">
 		<%= form_tag(property_index_url, :method => "post", :name => "new_property", :id => "newlisting") do %>
 			<%= label_tag(:beds, "Beds") %>
-		    <%= text_field_tag(:beds) %>
+		    <%= text_field_tag(:beds, '', :size => 2) %>
 		    <%= label_tag(:baths, "Baths") %>
 		    <%= text_field_tag(:baths) %>
 			<%= label_tag(:street, "Street") %>

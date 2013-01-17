@@ -27,7 +27,7 @@ var search_results = [<%= raw @search_results.to_json %>];
 			    <h3 id="myModalLabel"><%= listing.street %><br><%= listing.city %> <%= listing.state %> <%= listing.zip %></h3>
 			  </div>
 			  <div class="modal-body">
-			    <p>Description of this apartment</p>
+			    <p>Description of this apartment with picture</p>
 			  </div>
 			  <div class="modal-footer">
 				<%= form_for @property, :url => { :controller => "property", :action => "apply" }, :builder => BootstrapFormBuilder, :method => "post" do |form| %>
