@@ -24,10 +24,10 @@
      });
     </script>
   </head>
-	<div class="container">
+	<div class="container" id="mainPage">
 		<div class="hero-unit">
 			<body>	
-			    <%= form_tag("/search_listings", :method => "get", :id => "searchform", :class => "form-horizontal") do %>
+				<%= form_tag(search_listings_url, :method => "get", :id => "searchform", :builder => BootstrapFormBuilder, :class => "form-horizontal") do %>
 					<div class="control-group">
 						<h3 class="controls">In which city would you like to rent?</h3>
 					</div>

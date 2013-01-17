@@ -4,7 +4,6 @@ class SearchController < ApplicationController
   
   def search_listings
     city_state = params[:city]
-    date = params[:date]    
     session[:city] = city_state
     
     @property = Property.new
@@ -17,6 +16,6 @@ class SearchController < ApplicationController
       city = 'San Francisco'
       state = 'CA'
     end    
-    @search_results = Property.get_matches(city, state, date)
+    @search_results = Property.get_matches(city, state)
   end
 end

@@ -34,11 +34,7 @@ class Property < ActiveRecord::Base
     Property.where("user_id = ?", uid)
   end
   
-  def self.get_matches(city, state, date)
-    puts city + ' ' + state
-    if !date.nil? && !date.empty?
-      return Property.where("city = ? and state = ? and avail_date = ?", city, state, date)
-    else
+  def self.get_matches(city, state)
       return Property.where("city = ? and state = ?", city, state) # fix this for just address
     end
   end
