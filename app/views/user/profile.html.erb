@@ -3,7 +3,7 @@
 		
 			<h1><%= @user.firstname %> <%= @user.lastname %></h1>
 			<% if !@user.uid.blank? %>
-				<img src="https://graph.facebook.com/<%= @user.uid %>/picture?width=300&height=300"/>
+				<img src="https://graph.facebook.com/<%= @user.uid %>/picture?width=250&height=250"/>
 			<% else %>
 				<%= link_to image_tag("facebook-connect-button.png"), user_omniauth_authorize_path(:facebook) %>
 			<% end %>
