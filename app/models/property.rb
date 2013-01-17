@@ -36,6 +36,5 @@ class Property < ActiveRecord::Base
   
   def self.get_matches(city, state)
       return Property.where("city = ? and state = ?", city, state) # fix this for just address
-    end
   end
 end

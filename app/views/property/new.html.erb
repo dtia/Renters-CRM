@@ -1,7 +1,23 @@
+<script>
+ $(document).ready(function(){
+   
+   $("#newlisting").validate({
+     rules: {
+		beds: "required",
+		baths: "required",
+		street: "required",
+		city: "required",
+		state: "required",
+		price: "required",
+     }
+   });
+ });
+</script>
+
 <html>
   <body>
 	<div class="container">
-		<%= form_tag(property_index_url, :method => "post", :name => "new_property") do %>
+		<%= form_tag(property_index_url, :method => "post", :name => "new_property", :id => "newlisting") do %>
 			<%= label_tag(:beds, "Beds") %>
 		    <%= text_field_tag(:beds) %>
 		    <%= label_tag(:baths, "Baths") %>
