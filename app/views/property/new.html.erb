@@ -29,7 +29,7 @@
 			<%= label_tag(:city, "City") %>
 			<%= text_field_tag(:city) %>
 			<%= label_tag(:state, "State") %>
-			<%= text_field_tag(:state) %>
+			<%= select_tag('state', options_for_select(["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])) %>
 			<%= label_tag(:zip, "Zip") %>
 			<%= text_field_tag(:zip) %>
 			<%= label_tag(:avail_date, "Date Available") %>
