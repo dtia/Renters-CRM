@@ -1,14 +1,224 @@
 <html>
 	<div class="container">
-		<table class="table">
-			<% @app.attributes.each_pair do |k,v| %>
-				<tr>
-					<% if !Settings[k].blank? %>
-						<td><b><%= Settings[k] %></b></td>
-						<td><%= v.to_s %></td>
-					<% end %>
-				</tr>
-			<% end %>
+		<%= link_to 'Edit Application', edit_app_url(@app.id), :class => "btn btn-warning" %>
+		<table>
+			<tr>
+				<td><hr><h4>Current Address</h4><hr></td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:curr_street_address] %></h5>
+					<%= @app.curr_street_address %></h5>
+				</td>
+				<td>
+					<h5><%=  Settings[:curr_city] %></h5>
+					<%= @app.curr_city %>
+				</td>
+				<td>
+					<h5><%=  Settings[:curr_state] %></h5>
+					<%= @app.curr_state %>
+				</td>
+				<td>
+					<h5><%=  Settings[:curr_zip] %></h5>
+					<%= @app.curr_zip %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:curr_date_in] %></h5>
+					<%= @app.curr_date_in %>
+				</td>
+				<td>
+					<h5><%=  Settings[:curr_date_out] %></h5>
+					<%= @app.curr_date_out %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:curr_landlord] %></h5>
+					<%= @app.curr_landlord %>
+				</td>
+				<td>
+					<h5><%=  Settings[:curr_landlord_phone] %></h5>
+					<%= @app.curr_landlord_phone %>
+				</td>
+				<td>
+					<h5><%=  Settings[:curr_reason_leave] %></h5>
+					<%= @app.curr_reason_leave %>
+				</td>
+			</tr>
+			<tr>
+				<td><hr><h4>Previous Address</h4><hr></td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:prev_street_address] %></h5>
+					<%= @app.prev_street_address %>
+				</td>
+				<td>
+					<h5><%=  Settings[:prev_city] %></h5>
+					<%= @app.prev_city %>
+				</td>
+				<td>
+					<h5><%=  Settings[:prev_state] %></h5>
+					<%= @app.prev_state %>
+				</td>
+				<td>
+					<h5><%=  Settings[:prev_zip] %></h5>
+					<%= @app.prev_zip %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:prev_date_in] %></h5>
+					<%= @app.prev_date_in %>
+				</td>
+				<td>
+					<h5><%=  Settings[:prev_date_out] %></h5>
+					<%= @app.prev_date_out %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:prev_landlord] %></h5>
+					<%= @app.prev_landlord %>
+				</td>
+				<td>
+					<h5><%=  Settings[:prev_reason_leave] %></h5>
+					<%= @app.prev_reason_leave %>
+				</td>
+			</tr>
+			<tr>
+				<td><hr><h4>Employment Information</h4><hr></td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:occupation] %></h5>
+					<%= @app.occupation %>
+				</td>
+				<td>
+					<h5><%=  Settings[:employer] %></h5>
+					<%= @app.employer %>
+				</td>
+				<td>
+					<h5><%=  Settings[:salary] %></h5>
+					<%= @app.salary %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:supervisor] %></h5>
+					<%= @app.supervisor %>
+				</td>
+				<td>
+					<h5><%=  Settings[:supervisor_phone] %></h5>
+					<%= @app.supervisor_phone %>
+				</td>
+				<td>
+					<h5><%=  Settings[:employer_start] %></h5>
+					<%= @app.employer_start %>
+				</td>
+				<td>
+					<h5><%=  Settings[:employer_end] %></h5>
+					<%= @app.employer_end %>
+				</td>
+			</tr>
+			<tr>
+				<td><hr><h4>Emergency Contact</h4><hr></td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:emerg_name] %></h5>
+					<%= @app.emerg_name %>
+				</td>
+				<td>
+					<h5><%=  Settings[:emerg_address] %></h5>
+					<%= @app.emerg_address %>
+				</td>
+				<td>
+					<h5><%=  Settings[:emerg_phone] %></h5>
+					<%= @app.emerg_phone %>
+				</td>
+				<td>
+					<h5><%=  Settings[:emerg_relationship] %></h5>
+					<%= @app.emerg_relationship %>
+				</td>
+			</tr>
+			<tr>
+				<td><hr><h4>Personal Reference</h4><hr></td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:ref_name] %></h5>
+					<%= @app.ref_name %>
+				</td>
+				<td>
+					<h5><%=  Settings[:ref_address] %></h5>
+					<%= @app.ref_address %>
+				</td>
+				<td>
+					<h5><%=  Settings[:ref_phone] %></h5>
+					<%= @app.ref_phone %>
+				</td>
+				<td>
+					<h5><%=  Settings[:ref_relationship] %></h5>
+					<%= @app.ref_relationship %>
+				</td>
+			</tr>
+			<tr>
+				<td><hr><h4>Background Information</h4><hr></td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:bankruptcy] %></h5>
+					<%= @app.bankruptcy %>
+				</td>
+				<td>
+					<h5><%=  Settings[:refuse_rent] %></h5>
+					<%= @app.refuse_rent %>
+				</td>
+			<tr>
+				<td>
+					<h5><%=  Settings[:evicted] %></h5>
+					<%= @app.evicted %>
+				</td>
+				<td>
+					<h5><%=  Settings[:evicted_reason] %></h5>
+					<%= @app.evicted_reason %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:convicted] %></h5>
+					<%= @app.convicted %>
+				</td>
+				<td>
+					<h5><%=  Settings[:convicted_reason] %></h5>
+					<%= @app.convicted_reason %>
+				</td>
+			</tr>
+			<tr>
+				<td><hr><h4>Vehicle Information</h4><hr></td>
+			</tr>
+			<tr>
+				<td>
+					<h5><%=  Settings[:vehicle_make_model] %></h5>
+					<%= @app.vehicle_make_model %>
+				</td>
+				<td>
+					<h5><%=  Settings[:vehicle_year] %></h5>
+					<%= @app.vehicle_year %>
+				</td>
+
+				<td>
+					<h5><%=  Settings[:vehicle_license_state] %></h5>
+					<%= @app.vehicle_license_state %>
+				</td>
+				<td>
+					<h5><%=  Settings[:evicted_reason] %></h5>
+					<%= @app.evicted_reason %>
+				</td>
+			</tr>
 		</table>
 		<%= link_to 'Edit Application', edit_app_url(@app.id), :class => "btn btn-warning" %>
 		<br><br>
