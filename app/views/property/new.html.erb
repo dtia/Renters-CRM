@@ -41,7 +41,7 @@
 			<%= label_tag(:parking, "Has Parking") %>
 			<%= select_tag(:parking, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
 			<br>
-		<%= submit_tag("Create Listing") %>
+		<%= submit_tag("Create Listing", :class => "btn") %>
 		<% end %>
 	</div>
   </body>

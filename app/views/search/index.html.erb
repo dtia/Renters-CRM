@@ -25,7 +25,7 @@
     </script>
   </head>
 	<div class="container" id="mainPage">
-		<div class="hero-unit">
+		<div class="hero-unit hero-style">
 			<body id="homepage">	
 				<%= form_tag(search_listings_url, :method => "get", :id => "searchform", :class => "form-horizontal") do %>
 
@@ -40,7 +40,7 @@
 	    
 					<div class="control-group">
 						<div class="controls">
-							<%= submit_tag("Search") %>
+							<%= submit_tag("Search", :class => "btn btn-large") %>
 						</div>
 					</div>
 			    <% end %>

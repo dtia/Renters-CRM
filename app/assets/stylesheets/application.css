@@ -32,8 +32,17 @@
 
 .nav {
 	font-family: 'Quando', serif;
+	font-size: 1.2em;
 }
 
 #mainprompt {
 	font-family: 'Quando', serif;
+}
+
+.hero-style {
+	margin-top: 100px;
+}
+
+#mainsearchbox {
+	width: 400px;
 }
