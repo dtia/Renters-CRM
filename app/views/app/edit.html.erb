@@ -1,13 +1,15 @@
 <html>
-	<table class="table">
-		<%= form_for :app, :url => app_url(@app.id), :builder => BootstrapFormBuilder, :method => "put" do |f| %>
-			<% @app.attributes.each_pair do |k, v| %>
-				<% if !Settings[k].blank? %>
-					<%= f.label Settings[k] %>
-					<%= f.text_field :"#{k}" %>
+	<div class="container">
+		<table class="table">
+			<%= form_for :app, :url => app_url(@app.id), :builder => BootstrapFormBuilder, :method => "put" do |f| %>
+				<% @app.attributes.each_pair do |k, v| %>
+					<% if !Settings[k].blank? %>
+						<%= f.label Settings[k] %>
+						<%= f.text_field :"#{k}" %>
+					<% end %>
 				<% end %>
+				<%= f.button 'Save Application', :class => "btn" %>
 			<% end %>
-			<%= f.button 'Save Application', :class => "btn" %>
-		<% end %>
-	</table>
+		</table>
+	</div>
 </html>

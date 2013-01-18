@@ -17,32 +17,72 @@
 <html>
   <body>
 	<div class="container">
-		<%= form_tag(property_index_url, :method => "post", :name => "new_property", :id => "newlisting") do %>
-			<%= label_tag(:beds, "Beds") %>
-		    <%= text_field_tag(:beds, '', :size => 2) %>
-		    <%= label_tag(:baths, "Baths") %>
-		    <%= text_field_tag(:baths) %>
-			<%= label_tag(:street, "Street") %>
-			<%= text_field_tag(:street) %>
-			<%= label_tag(:unit, "Unit") %>
-			<%= text_field_tag(:unit) %>
-			<%= label_tag(:city, "City") %>
-			<%= text_field_tag(:city) %>
-			<%= label_tag(:state, "State") %>
-			<%= select_tag('state', options_for_select(["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])) %>
-			<%= label_tag(:zip, "Zip") %>
-			<%= text_field_tag(:zip) %>
-			<%= label_tag(:avail_date, "Date Available") %>
-			<%= text_field_tag(:avail_date) %>
-			<%= label_tag(:price, "Rate") %>
-			<%= text_field_tag(:price) %>
-			<%= label_tag(:deposit, "Deposit") %>
-			<%= text_field_tag(:deposit) %>
-			<%= label_tag(:parking, "Has Parking") %>
-			<%= select_tag(:parking, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
-			<br>
-		<%= submit_tag("Create Listing", :class => "btn") %>
-		<% end %>
+		<table>
+			<%= form_tag(property_index_url, :method => "post", :name => "new_property", :id => "newlisting") do %>
+				<tr>
+					<td>
+						<%= label_tag(:beds, "Beds") %>
+					    <%= text_field_tag(:beds, '', :class => "smallbox") %>
+					</td>
+					<td>
+					    <%= label_tag(:baths, "Baths") %>
+					    <%= text_field_tag(:baths) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= label_tag(:street, "Street") %>
+						<%= text_field_tag(:street) %>
+					</td>
+					<td>
+						<%= label_tag(:unit, "Unit") %>
+						<%= text_field_tag(:unit) %>
+					</td>
+				</tr>
+				<tr>
+					<td>					
+						<%= label_tag(:city, "City") %>
+						<%= text_field_tag(:city) %>
+					</td>
+					<td>
+						<%= label_tag(:state, "State") %>
+						<%= select_tag('state', options_for_select(["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"])) %>
+					</td>
+					<td>
+						<%= label_tag(:zip, "Zip") %>
+						<%= text_field_tag(:zip) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= label_tag(:avail_date, "Date Available") %>
+						<%= text_field_tag(:avail_date) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= label_tag(:price, "Rate") %>
+						<%= text_field_tag(:price) %>
+					</td>
+					<td>
+						<%= label_tag(:deposit, "Deposit") %>
+						<%= text_field_tag(:deposit) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= label_tag(:parking, "Has Parking") %>
+						<%= select_tag(:parking, options_for_select([["Yes", 1], ["No", 0]], 1)) %>
+					</td>
+				</tr>
+				<br>
+				<tr>
+					<td>
+						<%= submit_tag("Create Listing", :class => "btn") %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
 	</div>
   </body>
 	
