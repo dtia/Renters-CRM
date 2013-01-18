@@ -1,14 +1,228 @@
 <html>
 	<div class="container">
-		<table class="table">
+		<table>
 			<%= form_for :app, :url => app_url(@app.id), :builder => BootstrapFormBuilder, :method => "put" do |f| %>
-				<% @app.attributes.each_pair do |k, v| %>
-					<% if !Settings[k].blank? %>
-						<%= f.label Settings[k] %>
-						<%= f.text_field :"#{k}" %>
-					<% end %>
-				<% end %>
-				<%= f.button 'Save Application', :class => "btn" %>
+				<tr>
+					<td><hr><h4>Current Address</h4><hr></td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:curr_street_address] %>
+						<%= f.text_field :curr_street_address %>
+					</td>
+					<td>
+						<%= f.label Settings[:curr_city] %>
+						<%= f.text_field :curr_city %>
+					</td>
+					<td>
+						<%= f.label Settings[:curr_state] %>
+						<%= f.text_field :curr_state %>
+					</td>
+					<td>
+						<%= f.label Settings[:curr_zip] %>
+						<%= f.text_field :curr_zip %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:curr_date_in] %>
+						<%= f.text_field :curr_date_in %>
+					</td>
+					<td>
+						<%= f.label Settings[:curr_date_out] %>
+						<%= f.text_field :curr_date_out %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:curr_landlord] %>
+						<%= f.text_field :curr_landlord %>
+					</td>
+					<td>
+						<%= f.label Settings[:curr_landlord_phone] %>
+						<%= f.text_field :curr_landlord_phone %>
+					</td>
+					<td>
+						<%= f.label Settings[:curr_reason_leave] %>
+						<%= f.text_field :curr_reason_leave %>
+					</td>
+				</tr>
+				<tr>
+					<td><hr><h4>Previous Address</h4><hr></td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:prev_street_address] %>
+						<%= f.text_field :prev_street_address %>
+					</td>
+					<td>
+						<%= f.label Settings[:prev_city] %>
+						<%= f.text_field :prev_city %>
+					</td>
+					<td>
+						<%= f.label Settings[:prev_state] %>
+						<%= f.text_field :prev_state %>
+					</td>
+					<td>
+						<%= f.label Settings[:prev_zip] %>
+						<%= f.text_field :prev_zip %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:prev_date_in] %>
+						<%= f.text_field :prev_date_in %>
+					</td>
+					<td>
+						<%= f.label Settings[:prev_date_out] %>
+						<%= f.text_field :prev_date_out %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:prev_landlord] %>
+						<%= f.text_field :prev_landlord %>
+					</td>
+					<td>
+						<%= f.label Settings[:prev_reason_leave] %>
+						<%= f.text_field :prev_reason_leave %>
+					</td>
+				</tr>
+				<tr>
+					<td><hr><h4>Employment Information</h4><hr></td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:occupation] %>
+						<%= f.text_field :occupation %>
+					</td>
+					<td>
+						<%= f.label Settings[:employer] %>
+						<%= f.text_field :employer %>
+					</td>
+					<td>
+						<%= f.label Settings[:salary] %>
+						<%= f.text_field :salary %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:supervisor] %>
+						<%= f.text_field :supervisor %>
+					</td>
+					<td>
+						<%= f.label Settings[:supervisor_phone] %>
+						<%= f.text_field :supervisor_phone %>
+					</td>
+					<td>
+						<%= f.label Settings[:employer_start] %>
+						<%= f.text_field :employer_start %>
+					</td>
+					<td>
+						<%= f.label Settings[:employer_end] %>
+						<%= f.text_field :employer_end %>
+					</td>
+				</tr>
+				<tr>
+					<td><hr><h4>Emergency Contact</h4><hr></td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:emerg_name] %>
+						<%= f.text_field :emerg_name %>
+					</td>
+					<td>
+						<%= f.label Settings[:emerg_address] %>
+						<%= f.text_field :emerg_address %>
+					</td>
+					<td>
+						<%= f.label Settings[:emerg_phone] %>
+						<%= f.text_field :emerg_phone %>
+					</td>
+					<td>
+						<%= f.label Settings[:emerg_relationship] %>
+						<%= f.text_field :emerg_relationship %>
+					</td>
+				</tr>
+				<tr>
+					<td><hr><h4>Personal Reference</h4><hr></td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:ref_name] %>
+						<%= f.text_field :ref_name %>
+					</td>
+					<td>
+						<%= f.label Settings[:ref_address] %>
+						<%= f.text_field :ref_address %>
+					</td>
+					<td>
+						<%= f.label Settings[:ref_phone] %>
+						<%= f.text_field :ref_phone %>
+					</td>
+					<td>
+						<%= f.label Settings[:ref_relationship] %>
+						<%= f.text_field :ref_relationship %>
+					</td>
+				</tr>
+				<tr>
+					<td><hr><h4>Background Information</h4><hr></td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:bankruptcy] %>
+						<%= f.text_field :bankruptcy %>
+					</td>
+					<td>
+						<%= f.label Settings[:refuse_rent] %>
+						<%= f.text_field :refuse_rent %>
+					</td>
+				<tr>
+					<td>
+						<%= f.label Settings[:evicted] %>
+						<%= f.text_field :evicted %>
+					</td>
+					<td>
+						<%= f.label Settings[:evicted_reason] %>
+						<%= f.text_field :evicted_reason %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:convicted] %>
+						<%= f.text_field :convicted %>
+					</td>
+					<td>
+						<%= f.label Settings[:convicted_reason] %>
+						<%= f.text_field :convicted_reason %>
+					</td>
+				</tr>
+				<tr>
+					<td><hr><h4>Vehicle Information</h4><hr></td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.label Settings[:vehicle_make_model] %>
+						<%= f.text_field :vehicle_make_model %>
+					</td>
+					<td>
+						<%= f.label Settings[:vehicle_year] %>
+						<%= f.text_field :vehicle_year %>
+					</td>
+
+					<td>
+						<%= f.label Settings[:vehicle_license_state] %>
+						<%= f.text_field :vehicle_license_state %>
+					</td>
+					<td>
+						<%= f.label Settings[:evicted_reason] %>
+						<%= f.text_field :evicted_reason %>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><%= f.button 'Save Application', :class => "btn" %></td>
+				<tr>
 			<% end %>
 		</table>
 	</div>
