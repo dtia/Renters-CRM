@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117215146) do
+ActiveRecord::Schema.define(:version => 20130118014434) do
 
   create_table "application_data", :force => true do |t|
     t.string   "curr_street_address"
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(:version => 20130117215146) do
     t.string   "lastname"
     t.string   "role"
     t.string   "phone"
-    t.integer  "ssn"
+    t.string   "ssn"
     t.integer  "credit_score"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
