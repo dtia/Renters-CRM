@@ -13,7 +13,8 @@ class AppController < ApplicationController
   end
   
   def show
-    @app = ApplicationData.where("user_id = ?", current_user.id)
+    user_id = params[:id]
+    @app = ApplicationData.where("user_id = ?", user_id)
     if @app.blank?
       redirect_to new_app_url
     else      
