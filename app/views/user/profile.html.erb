@@ -6,7 +6,7 @@
 				<% if !@user.uid.blank? %>
 					<img class="profilepic" src="https://graph.facebook.com/<%= @user.uid %>/picture?width=200&height=200"/>
 				<% else %>
-					<%= link_to image_tag"facebook-connect-button.png", user_omniauth_authorize_path(:facebook) %>
+					<%= link_to image_tag("facebook-connect-button.png"), user_omniauth_authorize_path(:facebook) %>
 				<% end %>
 				<br>
 				<br>

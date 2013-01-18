@@ -28,7 +28,6 @@ class PropertyController < ApplicationController
   def apply
     prop_id = params[:prop_id]
     session[:prop_id] = prop_id
-    
     app_data = ApplicationData.where("user_id = ?", current_user.id).first
 
     # if application data does not exist for user yet, redirect to application page
