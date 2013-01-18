@@ -48,8 +48,4 @@ class AppController < ApplicationController
     end
     redirect_to app_url
   end
-  
-  def after_sign_in_path_for(resource)
-    app_url(resource.id)
-  end
 end
