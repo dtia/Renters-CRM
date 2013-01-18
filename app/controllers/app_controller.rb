@@ -47,6 +47,6 @@ class AppController < ApplicationController
     else
       flash[:notice] = "Application update failed"
     end
-    redirect_to app_url
+    redirect_to app_url(params[:id])
   end
 end
