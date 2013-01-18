@@ -10,7 +10,7 @@
 				</tr>
 			<% end %>
 		</table>
-		<%= link_to 'Edit Application', edit_app_url(@app.id) %>
+		<%= link_to 'Edit Application', edit_app_url(@app.id), :class => "btn btn-warning" %>
 		<br><br>
 		<%= form_for @app, :url => submit_app_url(@app.id), :builder => BootstrapFormBuilder, :method => "post" do |form| %>	
 			<%= form.button 'Submit Application', :class => "btn btn-primary" %>

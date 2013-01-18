@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116035808) do
+ActiveRecord::Schema.define(:version => 20130117215146) do
 
   create_table "application_data", :force => true do |t|
     t.string   "curr_street_address"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20130116035808) do
     t.integer  "user_id"
     t.string   "unit"
     t.integer  "zip"
+    t.string   "cityval"
   end
 
   create_table "reviews", :force => true do |t|

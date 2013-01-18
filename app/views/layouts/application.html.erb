@@ -14,10 +14,21 @@
 		<div class="navbar-inner">
 			<a id ="padvisatitle" class="brand" href="<%= root_url %>" style="font-family: 'Happy Monkey', cursive;margin-left:50px;font-size:28px; font-weight:bold">PadVisa</a>
 			<ul class="nav">
-		      <li><a href="<%= root_url %>">Search Properties</a></li>
-		      <li><a href="<%= new_property_url %>">List Properties</a></li>
-		      <li><a href="<%= property_index_url %>">View My Properties</a></li>
-		      <li><a href="<%= profile_url %>">View My Profile</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Renters<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="<%= root_url %>">Search Properties</a></li>
+						<li><a href="<%= profile_url %>">My Profile</a></li>
+						<li><a href="<%= app_url(0) %>">My Application</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Landlords<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="<%= new_property_url %>">List Properties</a></li>
+						<li><a href="<%= property_index_url %>">My Properties</a></li>
+					</ul>
+				</li>
 		    </ul>
 		</div>
 	</div>

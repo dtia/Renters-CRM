@@ -11,7 +11,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_url
     end
   end
-  
-  def linkedin
-  end
 end
