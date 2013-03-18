@@ -1,0 +1,1 @@
+This is an app which simplifies the application process for both renters and landlords. Renters are able to apply to listings with one application and one credit check. Landlords are able to view applicants' social profiles and credit scores in order to qualify their renters: http://padvisa.herokuapp.com
